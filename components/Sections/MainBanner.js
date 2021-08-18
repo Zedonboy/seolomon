@@ -31,7 +31,7 @@ const MainBanner = () => {
                     </div>
 
                     <div className="col-lg-5 col-md-12">
-                        <div className="banner-wrapper-image p-24">
+                        <div className="banner-wrapper-image">
                             {/* <img src="/images/banner-img.png" alt="banner image" /> */}
                             <div className="divider"></div>
                         </div>
