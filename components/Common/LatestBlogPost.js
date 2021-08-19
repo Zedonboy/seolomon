@@ -8,7 +8,9 @@ const LatestBlogPost = () => {
                 <div className="section-title">
                     <span className="sub-title">Our Blog</span>
                     <h2>Our Latest Media</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                    <p>
+                        You can read blogs here
+                    </p>
                 </div>
 
                 <div className="row">

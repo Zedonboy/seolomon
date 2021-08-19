@@ -19,15 +19,15 @@ const WhatWeDo = () => {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
                             
                             <div className="skills-item">
-                                <div className="skills-header">
+                                {/* <div className="skills-header">
                                     <h4 className="skills-title">Digital Marketing & SEO</h4>
                                     <div className="skills-percentage">
                                         <div className="count-box">95%</div>
                                     </div>
-                                </div>
-                                <div className="skills-bar">
+                                </div> */}
+                                {/* <div className="skills-bar">
                                     <div className="bar-inner"><div className="bar progress-line" data-width="95"></div></div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
