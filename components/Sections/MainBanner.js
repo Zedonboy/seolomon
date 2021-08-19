@@ -1,21 +1,21 @@
 import React, { useEffect } from "react";
 
 const MainBanner = () => {
-  useEffect(() => {
-    let svg = document
-      .getElementById("svgobject")
-      .contentDocument.querySelectorAll("svg");
-    if (svg[0] == null) {
-      console.log("Svg is null");
-    }
-    let dot = svg[0].querySelectorAll("#star_origin")[0];
-    let curve = svg[0].querySelectorAll("#star_path")[0];
-    let totalLength = curve.getTotalLength();
-    let star = document.getElementById("star")
-    let u = 0.5;
-    let p = curve.getPointAtLength(u * totalLength);
+  // useEffect(() => {
+  //   let svg = document
+  //     .getElementById("svgobject")
+  //     .contentDocument.querySelectorAll("svg");
+  //   if (svg[0] == null) {
+  //     console.log("Svg is null");
+  //   }
+  //   let dot = svg[0].querySelectorAll("#star_origin")[0];
+  //   let curve = svg[0].querySelectorAll("#star_path")[0];
+  //   let totalLength = curve.getTotalLength();
+  //   let star = document.getElementById("star")
+  //   let u = 0.5;
+  //   let p = curve.getPointAtLength(u * totalLength);
 
-  }, []);
+  // }, []);
   return (
     <div className="banner-wrapper-area">
       <div className="container-fluid">
