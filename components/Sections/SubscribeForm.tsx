@@ -1,13 +1,18 @@
 import React from 'react';
 
-const SubscribeForm = () => {
+interface SubscribeSection {
+    text1:string
+    text2:string
+    text3:string
+}
+const SubscribeForm = (props : {data : SubscribeSection}) => {
     return (
         <div className="subscribe-area ptb-100">
             <div className="container">
                 <div className="subscribe-content">
-                    <span className="sub-title">Seolomon Updates</span>
-                    <h2>Subscribe To Our Newsletter</h2>
-                    <p>Seolomon will publish new contents to your email.</p>
+                    <span className="sub-title">{props.data.text1}</span>
+                    <h2>{props.data.text2}</h2>
+                    <p>{props.data.text3}</p>
                     
                     <form className="newsletter-form">
                         <input type="text" className="input-newsletter" placeholder="Enter your email address" name="EMAIL" required />

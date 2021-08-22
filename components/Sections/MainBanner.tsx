@@ -1,21 +1,15 @@
 import React, { useEffect } from "react";
 
-const MainBanner = () => {
-  // useEffect(() => {
-  //   let svg = document
-  //     .getElementById("svgobject")
-  //     .contentDocument.querySelectorAll("svg");
-  //   if (svg[0] == null) {
-  //     console.log("Svg is null");
-  //   }
-  //   let dot = svg[0].querySelectorAll("#star_origin")[0];
-  //   let curve = svg[0].querySelectorAll("#star_path")[0];
-  //   let totalLength = curve.getTotalLength();
-  //   let star = document.getElementById("star")
-  //   let u = 0.5;
-  //   let p = curve.getPointAtLength(u * totalLength);
-
-  // }, []);
+interface IHero {
+text1:string
+mainText:string
+btnText:string
+secondaryText:string
+}
+const MainBanner = (props : {
+  data : IHero
+}) => {
+  
   return (
     <div className="banner-wrapper-area">
       <div className="container-fluid">
@@ -23,11 +17,12 @@ const MainBanner = () => {
           <div className="col-lg-7 col-md-12">
             <div className="banner-wrapper-content">
               <div className="content">
-                <span className="sub-title">Growth Your Business</span>
-                <h1>Hungry for content that Ranks?</h1>
-                <p>
-                  SEOLO is an{" "}
-                  <span className="font-bold text-[#FE4C1C]">
+                <span className="sub-title">{props.data.text1}</span>
+                <h1>{props.data.mainText}</h1>
+                <p dangerouslySetInnerHTML={{__html: props.data.secondaryText}} className="t-main-banner-secondary-text">
+                  
+                  {/* SEOLO is an{" "}
+                  <span className="">
                     Artificial Intelligence
                   </span>{" "}
                   platform that generates{" "}
@@ -39,7 +34,7 @@ const MainBanner = () => {
                   <span className="font-bold text-[#FE4C1C]">
                     Drive Traffic
                   </span>{" "}
-                  to your website and convert that traffic into leads or sales.
+                  to your website and convert that traffic into leads or sales. */}
                 </p>
 
                 <form>
@@ -55,7 +50,7 @@ const MainBanner = () => {
                     </div>
                     <div className="col-lg-3 col-md-4 offset-lg-0 offset-md-4">
                       <button type="submit" className="default-btn">
-                        Start Now
+                        {props.data.btnText}
                       </button>
                     </div>
                   </div>
@@ -70,7 +65,6 @@ const MainBanner = () => {
               id="svgobject"
               className="h-[400px] w-[400px]"
               data="/images/banner-img.svg"
-              alt="banner image"
             />
           </div>
         </div>

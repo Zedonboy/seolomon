@@ -1,15 +1,23 @@
 import React from 'react';
 import Link from 'next/link';
 
-const LatestBlogPost = () => {
+interface Posts {
+
+}
+interface BlocSection {
+    text1:string
+    text2:string
+    text3:string
+}
+const LatestBlogPost = (props : {data: BlocSection, posts : any}) => {
     return (
         <div className="blog-area bg-f9f9f9 pt-100 pb-70">
             <div className="container">
                 <div className="section-title">
-                    <span className="sub-title">Our Blog</span>
-                    <h2>Our Latest Media</h2>
+                    <span className="sub-title">{props.data.text1}</span>
+                    <h2>{props.data.text2}</h2>
                     <p>
-                        You can read blogs here
+                        {props.data.text3}
                     </p>
                 </div>
 

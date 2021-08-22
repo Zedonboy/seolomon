@@ -1,7 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Footer = () => {
+interface FooterSection {
+    text:string
+    logo:any
+}
+const Footer = (props : {data : FooterSection}) => {
     const currentYear = new Date().getFullYear();
     return (
         <footer className="footer-area">
@@ -11,10 +15,10 @@ const Footer = () => {
                         <div className="single-footer-widget">
                             <Link href="/">
                                 <a className="logo">
-                                    <img class="h-[4rem]" src="/images/seo-logo-footer.png" alt="logo" />
+                                    <img class="h-[4rem]" src={props.data.logo.url} alt="logo" />
                                 </a>
                             </Link>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                            <p>{props.data.text}</p>
                             <ul className="social-link">
                                 <li>
                                     <a href="https://www.facebook.com/" className="d-block" target="_blank">

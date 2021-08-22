@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.t-main-banner-secondary-text span{
+    @apply font-bold text-[#FE4C1C]
+}

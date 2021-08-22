@@ -1,4 +1,5 @@
-import 'tailwindcss/tailwind.css'
+//import 'tailwindcss/tailwind.css'
+import "../assets/tailwind.css"
 import '../public/css/bootstrap.min.css'
 import '../public/css/animate.min.css'
 import '../public/css/boxicons.min.css'
