@@ -15,7 +15,7 @@ const Footer = (props : {data : FooterSection}) => {
                         <div className="single-footer-widget">
                             <Link href="/">
                                 <a className="logo">
-                                    <img class="h-[4rem]" src={props.data.logo.url} alt="logo" />
+                                    <img className="h-[4rem]" src={props.data.logo.url} alt="logo" />
                                 </a>
                             </Link>
                             <p>{props.data.text}</p>
