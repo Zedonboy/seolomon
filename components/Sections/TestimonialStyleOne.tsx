@@ -44,6 +44,7 @@ const TestimonialStyleOne = (props : {data:TestimonialSection}) => {
                             <h2>{props.data.text2}</h2>
 
                             {display ? <OwlCarousel 
+                            //@ts-ignore
                                 className="testimonials-slides owl-carousel owl-theme"
                                 {...options}
                             >

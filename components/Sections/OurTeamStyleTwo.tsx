@@ -58,6 +58,7 @@ const OurTeamStyleTwo = (props : {data : TeamSection}) => {
                 </div>
 
                 {display ? <OwlCarousel 
+                //@ts-ignore
                     className="team-slides owl-carousel owl-theme"
                     {...options}
                 >
