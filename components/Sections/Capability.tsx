@@ -30,24 +30,24 @@ const CapabilitySection = (props : {
                     <div className="col-lg-6 col-md-12">
                         <div className="about-content">
                             <div className="text">
-                                <span className="sub-title">{props.data.text1}</span>
-                                <h2>{props.data.text2}</h2>
-                                <p>{props.data.text3}</p>
+                                <span className="sub-title">{props?.data?.text1}</span>
+                                <h2>{props?.data?.text2}</h2>
+                                <p>{props?.data?.text3}</p>
                                 
                                 <ul className="funfacts-list">
-                                    {props.data.children.map(v => (
+                                    {props?.data?.children.map(v => (
                                          <li>
                                          <div className="list">
-                                             <i className={v.icon}></i>
-                                             <h3>{v.number}</h3>
-                                             <p>{v.text1}</p>
+                                             <i className={v?.icon}></i>
+                                             <h3>{v?.number}</h3>
+                                             <p>{v?.text1}</p>
                                          </div>
                                      </li>
                                     ))}
                                 </ul>
 
-                                <Link href={props.data.btnLink}>
-                                    <a className="default-btn">{props.data.btnText}</a>
+                                <Link href={props?.data?.btnLink}>
+                                    <a className="default-btn">{props?.data?.btnText}</a>
                                 </Link>
                             </div>
                         </div>

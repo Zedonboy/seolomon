@@ -14,10 +14,10 @@ const LatestBlogPost = (props : {data: BlocSection, posts : any}) => {
         <div className="blog-area bg-f9f9f9 pt-100 pb-70">
             <div className="container">
                 <div className="section-title">
-                    <span className="sub-title">{props.data.text1}</span>
-                    <h2>{props.data.text2}</h2>
+                    <span className="sub-title">{props?.data?.text1}</span>
+                    <h2>{props?.data?.text2}</h2>
                     <p>
-                        {props.data.text3}
+                        {props?.data?.text3}
                     </p>
                 </div>
 

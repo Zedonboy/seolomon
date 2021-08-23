@@ -17,11 +17,11 @@ const HowItWork = (props : {data : StepsSection}) => {
                 <div className="row align-items-center">
                     <div className="col-lg-6 col-md-12">
                         <div className="how-its-work-content">
-                            <span className="sub-title">{props.data.text1}</span>
-                            <h2>{props.data.text1}</h2>
-                            <p>{props.data.text2}</p>
+                            <span className="sub-title">{props?.data?.text1}</span>
+                            <h2>{props?.data?.text1}</h2>
+                            <p>{props?.data?.text2}</p>
                             <div className="inner-box">
-                                {props.data.children.map((v,idx) => (
+                                {props?.data?.children.map((v,idx) => (
                                      <div className="single-item">
                                      <div className="count-box">
                                          {function(){
@@ -30,8 +30,8 @@ const HowItWork = (props : {data : StepsSection}) => {
                                              else return `0${step}`
                                          }()}
                                      </div>
-                                     <h3>{v.name}</h3>
-                                     <p>{v.detail}</p>
+                                     <h3>{v?.name}</h3>
+                                     <p>{v?.detail}</p>
                                  </div>
                                 ))}                           
                             </div>

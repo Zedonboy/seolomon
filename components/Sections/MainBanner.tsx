@@ -17,9 +17,9 @@ const MainBanner = (props : {
           <div className="col-lg-7 col-md-12">
             <div className="banner-wrapper-content">
               <div className="content">
-                <span className="sub-title">{props.data.text1}</span>
-                <h1>{props.data.mainText}</h1>
-                <p dangerouslySetInnerHTML={{__html: props.data.secondaryText}} className="t-main-banner-secondary-text">
+                <span className="sub-title">{props?.data?.text1}</span>
+                <h1>{props?.data?.mainText}</h1>
+                <p dangerouslySetInnerHTML={{__html: props?.data?.secondaryText}} className="t-main-banner-secondary-text">
                   
                   {/* SEOLO is an{" "}
                   <span className="">
@@ -50,7 +50,7 @@ const MainBanner = (props : {
                     </div>
                     <div className="col-lg-3 col-md-4 offset-lg-0 offset-md-4">
                       <button type="submit" className="default-btn">
-                        {props.data.btnText}
+                        {props?.data?.btnText}
                       </button>
                     </div>
                   </div>

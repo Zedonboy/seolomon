@@ -52,9 +52,9 @@ const OurTeamStyleTwo = (props : {data : TeamSection}) => {
         <div className="team-area-two ptb-100">
             <div className="container">
                 <div className="section-title">
-                    <span className="sub-title">{props.data.text1}</span>
-                    <h2>{props.data.text2}</h2>
-                    <p>{props.data.text3}</p>
+                    <span className="sub-title">{props?.data?.text1}</span>
+                    <h2>{props?.data?.text2}</h2>
+                    <p>{props?.data?.text3}</p>
                 </div>
 
                 {display ? <OwlCarousel 
@@ -65,7 +65,7 @@ const OurTeamStyleTwo = (props : {data : TeamSection}) => {
                     {props.data.children.map(v => (
                         <div className="single-team-member">
                         <div className="image">
-                            <img src={v.profile.url} alt="team-image" />
+                            <img src={v?.profile?.url} alt="team-image" />
 
                             <ul className="social-link">
                                 <li><a href="#" className="d-block" target="_blank"><i className='bx bxl-facebook'></i></a></li>
@@ -76,8 +76,8 @@ const OurTeamStyleTwo = (props : {data : TeamSection}) => {
                         </div>
 
                         <div className="content">
-                            <h3>{v.name}</h3>
-                            <span>{v.role}</span>
+                            <h3>{v?.name}</h3>
+                            <span>{v?.role}</span>
                             <i className="flaticon-share-icon"></i>
                         </div>
                     </div>

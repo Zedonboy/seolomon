@@ -40,15 +40,15 @@ const TestimonialStyleOne = (props : {data:TestimonialSection}) => {
                 <div className="row">
                     <div className="col-lg-7 col-md-12">
                         <div className="testimonials-content">
-                            <span className="sub-title">{ props.data.text1 || "Testimonials"}</span>
-                            <h2>{props.data.text2}</h2>
+                            <span className="sub-title">{ props?.data?.text1 || "Testimonials"}</span>
+                            <h2>{props?.data?.text2}</h2>
 
                             {display ? <OwlCarousel 
                             //@ts-ignore
                                 className="testimonials-slides owl-carousel owl-theme"
                                 {...options}
                             >
-                                {props.data.children.map(v => (
+                                {props?.data?.children.map(v => (
                                     <div className="single-testimonials-item">
                                     <p>{v.message}</p>
 
@@ -56,8 +56,8 @@ const TestimonialStyleOne = (props : {data:TestimonialSection}) => {
                                         <div className="d-flex align-items-center">
                                             <img src="/images/user1.jpg" alt="image" />
                                             <div className="title">
-                                                <h3>{v.name}</h3>
-                                                <span>{v.occupation}</span>
+                                                <h3>{v?.name}</h3>
+                                                <span>{v?.occupation}</span>
                                             </div>
                                         </div>
                                     </div>

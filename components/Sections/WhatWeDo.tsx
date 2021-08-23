@@ -24,9 +24,9 @@ const WhatWeDo = (props : {data : IAccordionSection}) => {
                 <div className="row align-items-center">
                     <div className="col-lg-6 col-md-12">
                         <div className="what-we-do-content">
-                            <span className="sub-title">{props.data.text1}</span>
-                            <h2>{props.data.text2}</h2>
-                            <p>{props.data.text3}</p>
+                            <span className="sub-title">{props?.data?.text1}</span>
+                            <h2>{props?.data?.text2}</h2>
+                            <p>{props?.data?.text3}</p>
                             
                             <div className="skills-item">
                                 {/* <div className="skills-header">
@@ -45,17 +45,17 @@ const WhatWeDo = (props : {data : IAccordionSection}) => {
                     <div className="col-lg-6 col-md-12">
                         <div className="what-we-do-content-accordion">
                             <Accordion allowZeroExpanded preExpanded={['0']}>
-                                {props.data.children.map((v,i) => (
-                                     <AccordionItem uuid={i.toString()}>
+                                {props?.data?.children?.map((v,i) => (
+                                     <AccordionItem uuid={i?.toString()}>
                                      <AccordionItemHeading>
                                          <AccordionItemButton>
                                              <span>
-                                                 {v.title}
+                                                 {v?.title}
                                              </span>
                                          </AccordionItemButton>
                                      </AccordionItemHeading>
                                      <AccordionItemPanel>
-                                         <p>{v.content}</p>
+                                         <p>{v?.content}</p>
                                      </AccordionItemPanel>
                                  </AccordionItem>
                                 ))}

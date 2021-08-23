@@ -10,9 +10,9 @@ const SubscribeForm = (props : {data : SubscribeSection}) => {
         <div className="subscribe-area ptb-100">
             <div className="container">
                 <div className="subscribe-content">
-                    <span className="sub-title">{props.data.text1}</span>
-                    <h2>{props.data.text2}</h2>
-                    <p>{props.data.text3}</p>
+                    <span className="sub-title">{props?.data?.text1}</span>
+                    <h2>{props?.data?.text2}</h2>
+                    <p>{props?.data?.text3}</p>
                     
                     <form className="newsletter-form">
                         <input type="text" className="input-newsletter" placeholder="Enter your email address" name="EMAIL" required />

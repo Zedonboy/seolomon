@@ -15,7 +15,7 @@ const AboutSection = (props : {data : IAboutSection}) => {
                 <div className="row align-items-center">
                     <div className="col-lg-6 col-md-12">
                         <div className="about-img">
-                            <img src={props.data.img.url} alt="image" />
+                            <img src={props?.data?.img?.url} alt="image" />
                         </div>
                     </div>
 
@@ -23,14 +23,14 @@ const AboutSection = (props : {data : IAboutSection}) => {
                         <div className="about-content">
                             <div className="text">
                                 {/* <span className="sub-title">About Us</span> */}
-                                <h2>{props.data.text1}</h2>
-                                <p>{props.data.text2}</p>
+                                <h2>{props?.data?.text1}</h2>
+                                <p>{props?.data?.text2}</p>
                                 
                                 <ul className="features-list">
-                                    {/* {props.data.children.map(v =)} */}
-                                    <li className="flex items-center"><i className="flaticon-speed"></i><p>{props.data.feature1}</p></li>
-                                    <li className="flex items-center"><i className="flaticon-speed"></i> <p>{props.data.feature2}</p></li>
-                                    <li className="flex items-center"><i className="flaticon-speed"></i> <p>{props.data.feature3}</p></li>
+                                    {/* {props?.data?.children?.map(v =)} */}
+                                    <li className="flex items-center"><i className="flaticon-speed"></i><p>{props?.data?.feature1}</p></li>
+                                    <li className="flex items-center"><i className="flaticon-speed"></i> <p>{props?.data?.feature2}</p></li>
+                                    <li className="flex items-center"><i className="flaticon-speed"></i> <p>{props?.data?.feature3}</p></li>
                                 </ul>
                             </div>
                         </div>
