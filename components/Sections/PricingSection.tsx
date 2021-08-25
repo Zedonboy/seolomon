@@ -17,12 +17,15 @@ interface IPriceSection {
     text1:string
     text2:string
     text3:string
+    bgColor:string
     children:Price[]
 }
 
 const Pricing = (props : {data : IPriceSection}) => {
     return (
-        <div className="pricing-area bg-f9f9f9 pt-100 pb-70">
+        <div style={{
+            backgroundColor: props?.data?.bgColor
+        }} className="pricing-area bg-f9f9f9 pt-100 pb-70">
             <div className="container">
                 <div className="section-title">
                     <span className="sub-title">{props?.data?.text1}</span>
@@ -59,7 +62,7 @@ const Pricing = (props : {data : IPriceSection}) => {
                                 <span>Per {v?.duration}</span>
                             </div>
 
-                            <Link href={v?.actionLink}>
+                            <Link href={v?.actionLink || ""}>
                                 <a className="default-btn">{v?.actionBtnText}</a>
                             </Link>
                         </div>

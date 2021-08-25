@@ -4,15 +4,21 @@ interface Step {
     name: string
     detail:string
 }
+
 interface StepsSection {
     text1:string
     text2:string
     text3:string
+    cover:any
     children:Step[]
+    bgColor:string
 }
+
 const HowItWork = (props : {data : StepsSection}) => {
     return (
-        <div className="how-its-work-area ptb-100">
+        <div style={{
+            backgroundColor : props?.data?.bgColor || "white"
+        }} className="how-its-work-area ptb-100">
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-lg-6 col-md-12">
@@ -40,7 +46,7 @@ const HowItWork = (props : {data : StepsSection}) => {
 
                     <div className="col-lg-6 col-md-12">
                         <div className="how-its-work-image">
-                            <img src="/images/how-its-work.png" alt="image" />
+                            <img src={props?.data?.cover?.url} alt="image" />
                         </div>
                     </div>
                 </div>

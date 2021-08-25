@@ -5,17 +5,20 @@ interface Case {
 text1:string
 text2:string
 link:string
+cover:any
 }
 interface CaseStudies {
     text1 : string
     text2 : string
     text3 : string
     children : Case[]
-
+    bgColor:string
 }
 const CaseStudiesTwo = (props : {data : CaseStudies}) => {
     return (
-        <div className="portfolio-area section-title-center pt-100 pb-70">
+        <div style={{
+            backgroundColor: props?.data?.bgColor || "white"
+        }} className="portfolio-area section-title-center pt-100 pb-70">
             <div className="container">
                 <div className="section-title">
                     <span className="sub-title">{props?.data?.text1}</span>
@@ -27,21 +30,21 @@ const CaseStudiesTwo = (props : {data : CaseStudies}) => {
                     {props?.data?.children.map(v => (
                         <div className="col-lg-4 col-md-6 col-sm-6">
                         <div className="single-portfolio-box">
-                            <Link href="/single-portfolio">
+                            <Link href={v?.link || ""}>
                                 <a className="image d-block">
-                                    <img src="/images/portfolio/portfolio-img1.jpg" alt="image" />
+                                    <img src={v?.cover?.url} alt="image" />
                                 </a>
                             </Link>
     
                             <div className="content">
                                 <h3>
-                                    <Link href={v?.link}>
+                                    <Link href={v?.link || ""}>
                                         <a>{v?.text1}</a>
                                     </Link>
                                 </h3>
                                 <span>{v?.text2}</span>
 
-                                <Link href={v?.link}>
+                                <Link href={v?.link || ""}>
                                     <a className="link-btn"><i className="flaticon-next-button"></i></a>
                                 </Link>
                             </div>

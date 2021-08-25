@@ -7,6 +7,9 @@ const Layout = ({ children }) => {
     <>
       <Head>
         <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+        <link rel="stylesheet" href="/fontawesome/css/regular.min.css" />
+        <link rel="stylesheet" href="/fontawesome/css/brands.min.css" />
+        <link rel="stylesheet" href="/fontawesome/css/fontawesome.min.css" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"

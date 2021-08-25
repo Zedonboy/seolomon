@@ -15,11 +15,12 @@ interface IAccordionSection{
     text1 : string
     text2 : string
     text3: string
+    bgColor:string
     children: IAcccordionItem[]
 }
 const WhatWeDo = (props : {data : IAccordionSection}) => {
     return (
-        <div className="what-we-do-area ptb-100">
+        <div style={{backgroundColor: props?.data?.bgColor || "white"}} className="what-we-do-area ptb-100">
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-lg-6 col-md-12">

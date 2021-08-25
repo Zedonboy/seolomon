@@ -12,18 +12,22 @@ interface ICapabilitySection {
     text3:string
     btnText:string
     btnLink: string
+    bgColor:string
+    cover:any
     children : ICapability[]
 }
 const CapabilitySection = (props : {
     data : ICapabilitySection
 }) => {
     return (
-        <div className="about-area pb-100">
+        <div style={{
+            backgroundColor: props?.data?.bgColor || "white"
+        }} className="about-area pb-100">
             <div className="container-fluid">
                 <div className="row align-items-center">
                     <div className="col-lg-6 col-md-12">
                         <div className="about-img">
-                            <img src="/images/about-img2.png" alt="image" />
+                            <img src={props?.data?.cover?.url} alt="image" />
                         </div>
                     </div>
 
@@ -46,7 +50,7 @@ const CapabilitySection = (props : {
                                     ))}
                                 </ul>
 
-                                <Link href={props?.data?.btnLink}>
+                                <Link href={props?.data?.btnLink || ""}>
                                     <a className="default-btn">{props?.data?.btnText}</a>
                                 </Link>
                             </div>

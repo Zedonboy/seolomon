@@ -19,7 +19,7 @@ import HowItWork from "../components/Sections/HowItWork";
 import OurTeamStyleTwo from "../components/Sections/OurTeamStyleTwo";
 import TestimonialStyleOne from "../components/Sections/TestimonialStyleOne";
 
-export default function Home({ site, page }) {
+export default function Home({ site, page, posts }) {
   let GlobalStyleComponent = null;
   GlobalStyleComponent = createGlobalStyle`
   :root {
@@ -52,7 +52,7 @@ export default function Home({ site, page }) {
           case "page-sections.about-us":
             return <AboutUs data={section} />;
           case "page-sections.blog-section":
-            return <LatestBlogPost data={section} posts={[]} />;
+            return <LatestBlogPost data={section} posts={posts} />;
           case "page-sections.capability-section":
             return <CapabilitySection data={section} />;
           case "page-sections.card-section":
@@ -75,6 +75,8 @@ export default function Home({ site, page }) {
             return <OurTeamStyleTwo data={section} />;
           case "page-sections.testimonial-section":
             return <TestimonialStyleOne data={section} />;
+          case "page-sections.accordion-section":
+            return <WhatWeDo data={section}/>
         }
       })}
     </>
@@ -90,14 +92,21 @@ export async function getServerSideProps() {
     method: "GET",
   });
 
+  let postResp = await fetch(`${API_URL}/posts?featured=true`, {
+    method: "GET"
+  })
+
   if (resp.status === 200 && respData.status === 200) {
     let site = await resp.json();
     let page = await respData.json();
+    let posts = []
+    if(postResp.status === 200) posts = await postResp.json()
 
     return {
       props: {
         site,
         page,
+        posts
       },
     };
   } else {

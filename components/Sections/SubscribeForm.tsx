@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
+import { API_URL } from '../../config/api';
 
 interface SubscribeSection {
     text1:string
@@ -6,6 +7,20 @@ interface SubscribeSection {
     text3:string
 }
 const SubscribeForm = (props : {data : SubscribeSection}) => {
+    let [email, setEmail] = useState("")
+    let [submitSuccess, setSubmitSuccess] = useState(false)
+    let onSubmit = useCallback((e) => {
+        fetch(`${API_URL}/mail-subscribers`, {
+            method: "POST",
+            body: JSON.stringify({
+                email
+            })
+        }).then(r => {
+            if(r.status === 200){
+                setSubmitSuccess(true)
+            }
+        })
+    }, [email])
     return (
         <div className="subscribe-area ptb-100">
             <div className="container">
@@ -14,10 +29,17 @@ const SubscribeForm = (props : {data : SubscribeSection}) => {
                     <h2>{props?.data?.text2}</h2>
                     <p>{props?.data?.text3}</p>
                     
-                    <form className="newsletter-form">
-                        <input type="text" className="input-newsletter" placeholder="Enter your email address" name="EMAIL" required />
+                    {submitSuccess ? (
+                        <p className="text-3xl text-green-500">We will keep you updated!</p>
+                    ) : (
+                        <form onSubmit={onSubmit} className="newsletter-form">
+                        <input value={email} onChange={e => {
+                            setEmail(e.target.value)
+                        }} type="text" className="input-newsletter" placeholder="Enter your email address" name="EMAIL" required />
                         <button type="submit" className="default-btn">Subscribe Now</button>
                     </form>
+                    )}
+                    
                 </div>
             </div>
 

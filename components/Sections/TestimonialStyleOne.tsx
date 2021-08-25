@@ -26,6 +26,8 @@ interface TestimonialItem {
 interface TestimonialSection {
     text1:string
     text2:string
+    cover:any
+    bgColor: string
     children:TestimonialItem[]
 }
 const TestimonialStyleOne = (props : {data:TestimonialSection}) => {
@@ -35,7 +37,7 @@ const TestimonialStyleOne = (props : {data:TestimonialSection}) => {
         setDisplay(true);
     }, [])
     return (
-        <div className="testimonials-area">
+        <div style={{backgroundColor: props?.data?.bgColor || "white"}} className="testimonials-area">
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-7 col-md-12">
@@ -50,11 +52,11 @@ const TestimonialStyleOne = (props : {data:TestimonialSection}) => {
                             >
                                 {props?.data?.children.map(v => (
                                     <div className="single-testimonials-item">
-                                    <p>{v.message}</p>
+                                    <p>{v?.message}</p>
 
                                     <div className="client-info">
                                         <div className="d-flex align-items-center">
-                                            <img src="/images/user1.jpg" alt="image" />
+                                            <img src={v?.profile?.url} alt="image" />
                                             <div className="title">
                                                 <h3>{v?.name}</h3>
                                                 <span>{v?.occupation}</span>
@@ -63,16 +65,14 @@ const TestimonialStyleOne = (props : {data:TestimonialSection}) => {
                                     </div>
                                 </div>
                                 ))}
-                                
 
-                               
                             </OwlCarousel> : ''}
                         </div>
                     </div>
 
                     <div className="col-lg-5 col-md-12">
                         <div className="testimonials-image">
-                            <img src="/images/testimonials-img.jpg" alt="image" />
+                            <img src={props?.data?.cover?.url} alt="image" />
                         </div>
                     </div>
                 </div>

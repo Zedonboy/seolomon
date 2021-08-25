@@ -4,6 +4,9 @@ import Link from 'next/link';
 interface FooterSection {
     text:string
     logo:any
+    address: string
+    phone:string
+    email:string
 }
 const Footer = (props : {data : FooterSection}) => {
     const currentYear = new Date().getFullYear();
@@ -116,20 +119,20 @@ const Footer = (props : {data : FooterSection}) => {
                             <ul className="footer-contact-info">
                                 <li>
                                     <i className='bx bx-map'></i> 
-                                    175 5th Ave Premium Area, New York, NY 10010, United States
+                                    {props?.data?.address}
                                 </li>
                                 <li>
                                     <i className='bx bx-phone-call'></i> 
-                                    <a href="tel:+11234567890">+1 (123) 456 7890</a>
+                                    <a href={`tel:${props?.data?.phone || "00"}`}>{props?.data?.phone}</a>
                                 </li>
                                 <li>
                                     <i className='bx bx-envelope'></i>
-                                    <a href="mailto:hello@mibix.com">hello@mibix.com</a>
+                                    <a href={`mailto:${props?.data?.email || "human@example.com"}`}>{props?.data?.email}</a>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <i className='bx bxs-inbox'></i>
                                     <a href="tel:+557854578964">+55 785 4578964</a>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>

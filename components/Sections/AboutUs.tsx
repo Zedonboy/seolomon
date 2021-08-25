@@ -7,10 +7,13 @@ interface IAboutSection {
     feature1:string
     feature2:string
     feature3:string
+    bgColor:string
 }
 const AboutSection = (props : {data : IAboutSection}) => {
     return (
-        <div className="about-area pb-100">
+        <div style={{
+            backgroundColor:props?.data?.bgColor || "white"
+        }} className="about-area pb-100">
             <div className="container py-12">
                 <div className="row align-items-center">
                     <div className="col-lg-6 col-md-12">

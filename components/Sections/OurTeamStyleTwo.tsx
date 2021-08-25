@@ -38,6 +38,7 @@ interface TeamSection {
     text1:string
     text2:string
     text3:string
+    bgColor:string
     children : Member[]
 }
 
@@ -49,7 +50,9 @@ const OurTeamStyleTwo = (props : {data : TeamSection}) => {
     }, [])
 
     return (
-        <div className="team-area-two ptb-100">
+        <div style={{
+            backgroundColor: props?.data?.bgColor || "white"
+        }} className="team-area-two ptb-100">
             <div className="container">
                 <div className="section-title">
                     <span className="sub-title">{props?.data?.text1}</span>
