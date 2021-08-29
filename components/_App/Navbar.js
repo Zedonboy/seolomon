@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "../../utils/ActiveLink";
 
-const Navbar = () => {
+const Navbar = ({data}) => {
   const [menu, setMenu] = React.useState(true);
 
   const toggleNavbar = () => {
@@ -47,7 +47,7 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-lg navbar-light">
               <Link href="/">
                 <a onClick={toggleNavbar} className="navbar-brand">
-                  <img className="h-[4rem]" src="/images/seo-logo.png" alt="logo" />
+                  <img className="h-[4rem]" src={data?.logo?.url} alt="logo" />
                 </a>
               </Link>
 
@@ -69,9 +69,9 @@ const Navbar = () => {
               <div className={classOne} id="navbarSupportedContent">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <Link href="/#" activeClassName="active">
+                    <Link href="/">
                       <a
-                        onClick={(e) => e.preventDefault()}
+                        
                         className="nav-link"
                       >
                         Home 
@@ -80,9 +80,9 @@ const Navbar = () => {
                   </li>
 
                   <li className="nav-item">
-                    <Link href="/#">
+                    <Link passHref href="/#">
                       <a
-                        onClick={(e) => e.preventDefault()}
+                        
                         className="nav-link"
                       >
                         Google Ad 
@@ -91,9 +91,9 @@ const Navbar = () => {
                   </li>
 
                   <li className="nav-item">
-                    <Link href="/#">
+                    <Link passHref href="/blog">
                       <a
-                        onClick={(e) => e.preventDefault()}
+                        
                         className="nav-link"
                       >
                         Blog 
@@ -102,9 +102,9 @@ const Navbar = () => {
                   </li>
 
                   <li className="nav-item">
-                    <Link href="/#">
+                    <Link href="/pricing">
                       <a
-                        onClick={(e) => e.preventDefault()}
+                        
                         className="nav-link"
                       >
                         Pricing 

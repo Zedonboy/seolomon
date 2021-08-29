@@ -3,12 +3,11 @@ import NavbarStyleTwo from '../components/_App/NavbarStyleTwo';
 import PageBanner from '../components/Common/PageBanner';
 // import Footer from '../components/Sections/Footer';
 import Link from 'next/link';
+import Layout from "../components/_App/Layout"
 
 const Custom404 = () => {
     return (
-        <>
-			<NavbarStyleTwo />
-			
+        <Layout>			
 			<PageBanner 
                 pageTitle="404 Error" 
             />  
@@ -25,9 +24,7 @@ const Custom404 = () => {
 					</div>
 				</div>
 			</div>
-
-			{/* <Footer /> */}
-		</>
+		</Layout>
     )
 }
 

@@ -1,9 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 
+// this FooterSection is now SiteData Type
 interface FooterSection {
-    text:string
     logo:any
+    footerText:string
+    footerLogo:any
     address: string
     phone:string
     email:string
@@ -18,10 +20,10 @@ const Footer = (props : {data : FooterSection}) => {
                         <div className="single-footer-widget">
                             <Link href="/">
                                 <a className="logo">
-                                    <img className="h-[4rem]" src={props?.data?.logo?.url} alt="logo" />
+                                    <img className="h-[4rem]" src={props?.data?.footerLogo?.url} alt="logo" />
                                 </a>
                             </Link>
-                            <p>{props?.data?.text}</p>
+                            <p>{props?.data?.footerText}</p>
                             <ul className="social-link">
                                 <li>
                                     <a href="https://www.facebook.com/" className="d-block" target="_blank">

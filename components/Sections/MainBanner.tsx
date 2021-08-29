@@ -5,6 +5,7 @@ text1:string
 mainText:string
 btnText:string
 secondaryText:string
+cover:any
 }
 const MainBanner = (props : {
   data : IHero
@@ -61,11 +62,12 @@ const MainBanner = (props : {
 
           <div className="col-lg-5 flex justify-center items-center col-md-12">
               {/* <span id="star" className="h-12 w-12 bg-red-500 absolute"/> */}
-            <object
+              <img className="h-[400px] w-[400px]" alt="Seo Banner Image" src={props?.data?.cover?.url}/>
+            {/* <object
               id="svgobject"
               className="h-[400px] w-[400px]"
               data="/images/banner-img.svg"
-            />
+            /> */}
           </div>
         </div>
       </div>

@@ -11,13 +11,9 @@ import 'react-accessible-accordion/dist/fancy-example.css'
 import '../public/css/style.css'
 import '../public/css/responsive.css'
 
-import Layout from '../components/_App/Layout';
-
 const MyApp =  ({ Component, pageProps }) => {
     return (
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
+        <Component {...pageProps} />
     )
 }
 

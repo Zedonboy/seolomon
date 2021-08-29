@@ -39,7 +39,7 @@ const CapabilitySection = (props : {
                                 <p>{props?.data?.text3}</p>
                                 
                                 <ul className="funfacts-list">
-                                    {props?.data?.children.map(v => (
+                                    {props?.data?.children?.map(v => (
                                          <li>
                                          <div className="list">
                                              <i className={v?.icon}></i>
