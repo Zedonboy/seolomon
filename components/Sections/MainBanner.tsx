@@ -4,6 +4,7 @@ interface IHero {
 text1:string
 mainText:string
 btnText:string
+actionBtnLink:string
 secondaryText:string
 cover:any
 }
@@ -38,9 +39,8 @@ const MainBanner = (props : {
                   to your website and convert that traffic into leads or sales. */}
                 </p>
 
-                <form>
                   <div className="row">
-                    <div className="col-lg-9 col-md-8">
+                    {/* <div className="col-lg-9 col-md-8">
                       <div className="form-group">
                         <input
                           type="text"
@@ -48,14 +48,13 @@ const MainBanner = (props : {
                           placeholder="Enter Website URL"
                         />
                       </div>
-                    </div>
+                    </div> */}
                     <div className="col-lg-3 col-md-4 offset-lg-0 offset-md-4">
-                      <button type="submit" className="default-btn">
+                      <a href={props?.data?.actionBtnLink || ""} className="bg-indigo-500 hover:bg-indigo-700 rounded-md py-2 px-4 text-white">
                         {props?.data?.btnText}
-                      </button>
+                      </a>
                     </div>
                   </div>
-                </form>
               </div>
             </div>
           </div>

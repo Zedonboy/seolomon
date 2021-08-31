@@ -18,6 +18,10 @@ import HowItWork from "../components/Sections/HowItWork";
 import OurTeamStyleTwo from "../components/Sections/OurTeamStyleTwo";
 import TestimonialStyleOne from "../components/Sections/TestimonialStyleOne";
 import Layout from '../components/_App/Layout';
+import InfoSection from "../components/Sections/InfoSection";
+import RInfoSection from "../components/Sections/ReverseInfoSection";
+import SingleServices from "../components/Sections/ServiceSection";
+import ASingleServices from "../components/Sections/AdvancedServiceSection";
 
 export default function Home({ site, page, posts }) {
   let GlobalStyleComponent = null;
@@ -75,6 +79,14 @@ export default function Home({ site, page, posts }) {
             return <TestimonialStyleOne data={section} />;
           case "page-sections.accordion-section":
             return <WhatWeDo data={section}/>
+          case "page-sections.info-section":
+            return <InfoSection data={section}/>
+          case "page-sections.rinfo-section":
+            return <RInfoSection data={section}/>
+          case "page-sections.service-section":
+            return <SingleServices data={section}/>
+          case "page-sections.advanced-service-section":
+            return <ASingleServices data={section}/>
         }
       })}
     </Layout>
