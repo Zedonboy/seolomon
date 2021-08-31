@@ -3927,9 +3927,9 @@ Testimonials Area CSS
   background-image: url(/images/testimonials-img.jpg);
 }
 
-.testimonials-image img {
+/* .testimonials-image img {
   display: none;
-}
+} */
 
 .feedback-area {
   position: relative;

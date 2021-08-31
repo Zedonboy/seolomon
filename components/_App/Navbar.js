@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "../../utils/ActiveLink";
 
-const Navbar = ({data}) => {
+const Navbar = ({ data }) => {
   const [menu, setMenu] = React.useState(true);
 
   const toggleNavbar = () => {
@@ -70,47 +70,27 @@ const Navbar = ({data}) => {
                 <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link href="/">
-                      <a
-                        
-                        className="nav-link"
-                      >
-                        Home 
-                      </a>
+                      <a className="nav-link">Home</a>
                     </Link>
                   </li>
-
-                  <li className="nav-item">
-                    <Link passHref href="/#">
-                      <a
-                        
-                        className="nav-link"
-                      >
-                        Google Ad 
-                      </a>
-                    </Link>
-                  </li>
-
                   <li className="nav-item">
                     <Link passHref href="/blog">
-                      <a
-                        
-                        className="nav-link"
-                      >
-                        Blog 
-                      </a>
+                      <a className="nav-link">Blog</a>
                     </Link>
                   </li>
 
                   <li className="nav-item">
                     <Link href="/pricing">
-                      <a
-                        
-                        className="nav-link"
-                      >
-                        Pricing 
-                      </a>
+                      <a className="nav-link">Pricing</a>
                     </Link>
                   </li>
+                  {data?.navLinks?.map((v) => (
+                    <li className="nav-item">
+                      <Link passHref href={v?.link || ""}>
+                        <a className="nav-link">{v?.text}</a>
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
 

@@ -50,7 +50,7 @@ const MainBanner = (props : {
                       </div>
                     </div> */}
                     <div className="col-lg-3 col-md-4 offset-lg-0 offset-md-4">
-                      <a href={props?.data?.actionBtnLink || ""} className="bg-indigo-500 hover:bg-indigo-700 rounded-md py-2 px-4 text-white">
+                      <a href={props?.data?.actionBtnLink || ""} className="default-btn bg-indigo-500 hover:bg-indigo-700 text-white">
                         {props?.data?.btnText}
                       </a>
                     </div>

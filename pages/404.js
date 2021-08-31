@@ -1,6 +1,6 @@
 import React from 'react';
 import NavbarStyleTwo from '../components/_App/NavbarStyleTwo';
-import PageBanner from '../components/Common/PageBanner';
+import PageBanner from '../components/Sections/PageBanner.tsx';
 // import Footer from '../components/Sections/Footer';
 import Link from 'next/link';
 import Layout from "../components/_App/Layout"

@@ -1,11 +1,14 @@
 import React from 'react';
 
-const PageBanner = ({pageTitle}) => {
+interface IPageBanner {
+    pageName : string
+}
+const PageBanner = (props : {data : IPageBanner}) => {
     return (
         <div className="page-title-area">
             <div className="container">
                 <div className="page-title-content">
-                    <h1>{pageTitle}</h1>
+                    <h1>{props?.data?.pageName}</h1>
                 </div>
             </div>
 
