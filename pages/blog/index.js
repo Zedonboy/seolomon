@@ -1,5 +1,5 @@
 import React from "react";
-import PageBanner from "../../components/Common/PageBanner";
+import PageBanner from "../../components/Sections/PageBanner";
 import Link from "next/link";
 import Layout from "../../components/_App/Layout";
 import {API_URL} from "../../config/api"
@@ -7,7 +7,7 @@ import {API_URL} from "../../config/api"
 const BlogPage = ({ site, page, posts, pageCount }) => {
   return (
     <Layout siteData={site}>
-      <PageBanner pageTitle="Blog" />
+      <PageBanner data={{pageName : "Blog"}} />
 
       <div className="blog-area bg-f9f9f9 ptb-100">
         <div className="container">

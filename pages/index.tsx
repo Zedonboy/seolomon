@@ -8,7 +8,7 @@ import LatestBlogPost from "../components/Sections/LatestBlogPost";
 import CTA from "../components/Sections/CTA";
 import WhatWeDo from "../components/Sections/WhatWeDo";
 import CapabilitySection from "../components/Sections/Capability";
-import PastWork from "../components/Common/PastWork";
+
 import { createGlobalStyle } from "styled-components";
 import { API_URL } from "../config/api";
 import CaseStudiesTwo from "../components/Sections/CaseStudiesTwo";

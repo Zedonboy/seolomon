@@ -1,12 +1,12 @@
 import React from "react";
-import PageBanner from "../../components/Common/PageBanner";
+import PageBanner from "../../components/Sections/PageBanner";
 import BlogSidebar from "../../components/Blog/BlogSidebar";
 import Layout from "../../components/_App/Layout";
 import { API_URL } from "../../config/api";
 const BlogDetails = ({ site, post }) => {
   return (
     <Layout siteData={site}>
-      <PageBanner pageTitle="Seolomon Blog" />
+      <PageBanner data={{pageName:"Seolomon Blog"}} />
 
       <div className="blog-details-area bg-f9f9f9 ptb-100">
         <div className="container">

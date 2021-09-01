@@ -1,6 +1,6 @@
 import Head from "next/head";
 import MainBanner from "../../components/Sections/MainBanner";
-
+import PageBanner from "../../components/Sections/PageBanner"
 import Subscribe from "../../components/Sections/SubscribeForm";
 import AboutUs from "../../components/Sections/AboutUs";
 import ServicesCard from "../../components/Sections/ServicesCard";
@@ -8,7 +8,7 @@ import LatestBlogPost from "../../components/Sections/LatestBlogPost";
 import CTA from "../../components/Sections/CTA";
 import WhatWeDo from "../../components/Sections/WhatWeDo";
 import CapabilitySection from "../../components/Sections/Capability";
-//import PastWork from "../components/Common/PastWork";
+
 import { createGlobalStyle } from "styled-components";
 import { API_URL } from "../../config/api";
 import CaseStudiesTwo from "../../components/Sections/CaseStudiesTwo";
@@ -22,6 +22,9 @@ import InfoSection from "../../components/Sections/InfoSection";
 import RInfoSection from "../../components/Sections/ReverseInfoSection";
 import SingleServices from "../../components/Sections/ServiceSection";
 import ASingleServices from "../../components/Sections/AdvancedServiceSection";
+import RichContentSection from "../../components/Sections/RichContent";
+import VideoInfoSection from "../../components/Sections/VideoInfoSection";
+import VideoCaseStudiesTwo from "../../components/Sections/VideoCardSection";
 
 export default function Home({ site, page, posts }) {
   let GlobalStyleComponent = null;
@@ -87,6 +90,14 @@ export default function Home({ site, page, posts }) {
             return <SingleServices data={section}/>
           case "page-sections.advanced-service-section":
             return <ASingleServices data={section}/>
+          case "page-sections.page-banner":
+            return <PageBanner data={section}/>
+          case "page-sections.rich-content-section":
+            return <RichContentSection data={section}/>
+          case "page-sections.video-info-section":
+            return <VideoInfoSection data={section}/>
+          case "page-sections.video-card-section":
+            return <VideoCaseStudiesTwo data={section}/>
         }
       })}
     </Layout>

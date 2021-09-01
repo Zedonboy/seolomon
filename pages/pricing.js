@@ -1,8 +1,6 @@
-import Layout from "../components/_App/Layout";
 import Head from "next/head";
-
 import MainBanner from "../components/Sections/MainBanner";
-
+import PageBanner from "../components/Sections/PageBanner"
 import Subscribe from "../components/Sections/SubscribeForm";
 import AboutUs from "../components/Sections/AboutUs";
 import ServicesCard from "../components/Sections/ServicesCard";
@@ -10,7 +8,8 @@ import LatestBlogPost from "../components/Sections/LatestBlogPost";
 import CTA from "../components/Sections/CTA";
 import WhatWeDo from "../components/Sections/WhatWeDo";
 import CapabilitySection from "../components/Sections/Capability";
-// import PastWork from "../components/Common/PastWork";
+
+import { createGlobalStyle } from "styled-components";
 import { API_URL } from "../config/api";
 import CaseStudiesTwo from "../components/Sections/CaseStudiesTwo";
 import Partner from "../components/Sections/Partner";
@@ -18,17 +17,40 @@ import Pricing from "../components/Sections/PricingSection";
 import HowItWork from "../components/Sections/HowItWork";
 import OurTeamStyleTwo from "../components/Sections/OurTeamStyleTwo";
 import TestimonialStyleOne from "../components/Sections/TestimonialStyleOne";
-import PageBanner from "../components/Common/PageBanner";
+import Layout from '../components/_App/Layout';
+import InfoSection from "../components/Sections/InfoSection";
+import RInfoSection from "../components/Sections/ReverseInfoSection";
+import SingleServices from "../components/Sections/ServiceSection";
+import ASingleServices from "../components/Sections/AdvancedServiceSection";
+import RichContentSection from "../components/Sections/RichContent";
+import VideoInfoSection from "../components/Sections/VideoInfoSection";
+import VideoCaseStudiesTwo from "../components/Sections/VideoCardSection";
 export default function PricingPage({ site, page, posts }) {
+  let GlobalStyleComponent = null;
+  GlobalStyleComponent = createGlobalStyle`
+  :root {
+    --fontFamily: 'Nunito', sans-serif;
+    --mainColor: ${site?.mainColor || "#fe4c1c"};
+    --optionalColor: ${site?.optionalColor};
+    --whiteColor: #ffffff;
+    --blackColor: ${site?.blackColor || "#080e32"};
+    --fontSize: ${site?.fontSize || "16px"};
+    --transition: .5s;
+    --navLinkColor: #ffffff;
+    scroll-behavior: initial;
+  }
+  
+`;
   return (
     <Layout siteData={site}>
       <Head>
-        <title>{page?.title}</title>
+        <title></title>
         {page?.meta?.map((meta) => (
-          <meta property={meta.property} content={meta.content} />
+          <meta property={meta.property} content={meta.content}/>
         ))}
       </Head>
-      <PageBanner pageTitle="Pricing" />
+      <GlobalStyleComponent />
+      
       {page?.layout?.map((section) => {
         switch (section.__component) {
           case "page-sections.main-banner":
@@ -59,6 +81,22 @@ export default function PricingPage({ site, page, posts }) {
             return <TestimonialStyleOne data={section} />;
           case "page-sections.accordion-section":
             return <WhatWeDo data={section}/>
+          case "page-sections.info-section":
+            return <InfoSection data={section}/>
+          case "page-sections.rinfo-section":
+            return <RInfoSection data={section}/>
+          case "page-sections.service-section":
+            return <SingleServices data={section}/>
+          case "page-sections.advanced-service-section":
+            return <ASingleServices data={section}/>
+          case "page-sections.page-banner":
+            return <PageBanner data={section}/>
+          case "page-sections.rich-content-section":
+            return <RichContentSection data={section}/>
+          case "page-sections.video-info-section":
+            return <VideoInfoSection data={section}/>
+          case "page-sections.video-card-section":
+            return <VideoCaseStudiesTwo data={section}/>
         }
       })}
     </Layout>
