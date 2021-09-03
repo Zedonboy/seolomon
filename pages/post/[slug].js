@@ -3,6 +3,8 @@ import PageBanner from "../../components/Sections/PageBanner";
 import BlogSidebar from "../../components/Blog/BlogSidebar";
 import Layout from "../../components/_App/Layout";
 import { API_URL } from "../../config/api";
+var showdown  = require('showdown')
+
 const BlogDetails = ({ site, post }) => {
   return (
     <Layout siteData={site}>
@@ -18,7 +20,10 @@ const BlogDetails = ({ site, post }) => {
                 </div>
 
                 <div
-                  dangerouslySetInnerHTML={{ __html: post?.content }}
+                  dangerouslySetInnerHTML={{ __html: function(){
+                    let conv = new showdown.Converter()
+                    return conv.makeHtml(post?.content);
+                  }() }}
                   className="article-content"
                 >
                   {/* <div className="entry-meta">
@@ -46,7 +51,7 @@ const BlogDetails = ({ site, post }) => {
                                     <div className="article-tags">
                                         <span><i className='bx bx-purchase-tag'></i></span>
                                         <a href="#">Fashion</a>
-                                        <a href="#">Games</a>
+                                        <a href="#">Games<var showdown  = require('showdown')/a>
                                         <a href="#">Travel</a>
                                     </div>
 
@@ -121,7 +126,7 @@ const BlogDetails = ({ site, post }) => {
 
             <div className="col-lg-4 col-md-12">
               <div className="blog-right-sidebar">
-                <BlogSidebar />
+                {/* <BlogSidebar /> */}
               </div>
             </div>
           </div>

@@ -25,7 +25,7 @@ import ASingleServices from "../../components/Sections/AdvancedServiceSection";
 import RichContentSection from "../../components/Sections/RichContent";
 import VideoInfoSection from "../../components/Sections/VideoInfoSection";
 import VideoCaseStudiesTwo from "../../components/Sections/VideoCardSection";
-
+import History from "../../components/Sections/History"
 export default function Home({ site, page, posts }) {
   let GlobalStyleComponent = null;
   GlobalStyleComponent = createGlobalStyle`
@@ -98,6 +98,8 @@ export default function Home({ site, page, posts }) {
             return <VideoInfoSection data={section}/>
           case "page-sections.video-card-section":
             return <VideoCaseStudiesTwo data={section}/>
+          case "page-sections.advanced-step-section":
+              return <History data={section}/>
         }
       })}
     </Layout>
