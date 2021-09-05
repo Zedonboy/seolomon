@@ -1,6 +1,6 @@
 import Head from "next/head";
 import MainBanner from "../../components/Sections/MainBanner";
-import PageBanner from "../../components/Sections/PageBanner"
+import PageBanner from "../../components/Sections/PageBanner";
 import Subscribe from "../../components/Sections/SubscribeForm";
 import AboutUs from "../../components/Sections/AboutUs";
 import ServicesCard from "../../components/Sections/ServicesCard";
@@ -17,7 +17,7 @@ import Pricing from "../../components/Sections/PricingSection";
 import HowItWork from "../../components/Sections/HowItWork";
 import OurTeamStyleTwo from "../../components/Sections/OurTeamStyleTwo";
 import TestimonialStyleOne from "../../components/Sections/TestimonialStyleOne";
-import Layout from '../../components/_App/Layout';
+import Layout from "../../components/_App/Layout";
 import InfoSection from "../../components/Sections/InfoSection";
 import RInfoSection from "../../components/Sections/ReverseInfoSection";
 import SingleServices from "../../components/Sections/ServiceSection";
@@ -25,7 +25,14 @@ import ASingleServices from "../../components/Sections/AdvancedServiceSection";
 import RichContentSection from "../../components/Sections/RichContent";
 import VideoInfoSection from "../../components/Sections/VideoInfoSection";
 import VideoCaseStudiesTwo from "../../components/Sections/VideoCardSection";
-import History from "../../components/Sections/History"
+import History from "../../components/Sections/History";
+import SlidingBanner from "../../components/Sections/MainBanner2";
+import CenterBanner from "../../components/Sections/MainBanner3";
+import LeftRightSection from "../../components/Sections/LeftRightSection";
+import TranTextBanner from "../../components/Sections/MainBanner4";
+import RVideoInfoSection from "../../components/Sections/RVideoInfoSection";
+import LoopVideoSection from "../../components/Sections/AutoLoopVideoSection";
+
 export default function Home({ site, page, posts }) {
   let GlobalStyleComponent = null;
   GlobalStyleComponent = createGlobalStyle`
@@ -47,11 +54,11 @@ export default function Home({ site, page, posts }) {
       <Head>
         <title>{page?.title}</title>
         {page?.meta?.map((meta) => (
-          <meta property={meta?.property} content={meta?.content}/>
+          <meta property={meta?.property} content={meta?.content} />
         ))}
       </Head>
       <GlobalStyleComponent />
-      
+
       {page?.layout?.map((section) => {
         switch (section.__component) {
           case "page-sections.main-banner":
@@ -81,25 +88,35 @@ export default function Home({ site, page, posts }) {
           case "page-sections.testimonial-section":
             return <TestimonialStyleOne data={section} />;
           case "page-sections.accordion-section":
-            return <WhatWeDo data={section}/>
+            return <WhatWeDo data={section} />;
           case "page-sections.info-section":
-            return <InfoSection data={section}/>
+            return <InfoSection data={section} />;
           case "page-sections.rinfo-section":
-            return <RInfoSection data={section}/>
+            return <RInfoSection data={section} />;
           case "page-sections.service-section":
-            return <SingleServices data={section}/>
+            return <SingleServices data={section} />;
           case "page-sections.advanced-service-section":
-            return <ASingleServices data={section}/>
+            return <ASingleServices data={section} />;
           case "page-sections.page-banner":
-            return <PageBanner data={section}/>
+            return <PageBanner data={section} />;
           case "page-sections.rich-content-section":
-            return <RichContentSection data={section}/>
+            return <RichContentSection data={section} />;
           case "page-sections.video-info-section":
-            return <VideoInfoSection data={section}/>
+            return <VideoInfoSection data={section} />;
           case "page-sections.video-card-section":
-            return <VideoCaseStudiesTwo data={section}/>
+            return <VideoCaseStudiesTwo data={section} />;
           case "page-sections.advanced-step-section":
-              return <History data={section}/>
+            return <History data={section} />;
+          case "page-sections.sliding-main-banner":
+            return <SlidingBanner data={section} />;
+          case "page-sections.center-main-banner":
+            return <CenterBanner data={section} />;
+          case "page-sections.r-video-info-section":
+            return <RVideoInfoSection data={section} />;
+          case "page-sections.sliding-text-banner":
+            return <TranTextBanner data={section} />;
+          case "page-sections.loop-video-section":
+            return <LoopVideoSection data={section} />;
         }
       })}
     </Layout>
@@ -107,7 +124,7 @@ export default function Home({ site, page, posts }) {
 }
 
 export async function getServerSideProps(ctx) {
-    let slug = ctx.params.slug
+  let slug = ctx.params.slug;
   let resp = await fetch(`${API_URL}/site`, {
     method: "GET",
   });
@@ -117,26 +134,26 @@ export async function getServerSideProps(ctx) {
   });
 
   let postResp = await fetch(`${API_URL}/posts?featured=true`, {
-    method: "GET"
-  })
+    method: "GET",
+  });
 
   if (resp.status === 200 && respData.status === 200) {
     let site = await resp.json();
     let pageArr = await respData.json();
-    let page = pageArr[0]
-    let posts = []
-    if(postResp.status === 200) posts = await postResp.json()
+    let page = pageArr[0];
+    let posts = [];
+    if (postResp.status === 200) posts = await postResp.json();
 
     return {
       props: {
         site,
         page,
-        posts
+        posts,
       },
     };
   } else {
     return {
-      notFound:true,
+      notFound: true,
       props: {},
     };
   }

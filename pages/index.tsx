@@ -26,6 +26,12 @@ import RichContentSection from "../components/Sections/RichContent";
 import VideoInfoSection from "../components/Sections/VideoInfoSection";
 import VideoCaseStudiesTwo from "../components/Sections/VideoCardSection";
 import History from "../components/Sections/History"
+import SlidingBanner from "../components/Sections/MainBanner2"
+import CenterBanner from "../components/Sections/MainBanner3"
+import LeftRightSection from "../components/Sections/LeftRightSection";
+import TranTextBanner from "../components/Sections/MainBanner4"
+import RVideoInfoSection from "../components/Sections/RVideoInfoSection"
+import LoopVideoSection from "../components/Sections/AutoLoopVideoSection"
 
 export default function Home({ site, page, posts }) {
   let GlobalStyleComponent = null;
@@ -101,6 +107,16 @@ export default function Home({ site, page, posts }) {
             return <VideoCaseStudiesTwo data={section}/>
           case "page-sections.advanced-step-section":
             return <History data={section}/>
+          case "page-sections.sliding-main-banner":
+            return <SlidingBanner data={section}/>
+          case "page-sections.center-main-banner":
+            return <CenterBanner data={section}/>
+          case "page-sections.r-video-info-section":
+            return <RVideoInfoSection data={section}/>
+          case "page-sections.sliding-text-banner":
+            return <TranTextBanner data={section}/>
+          case "page-sections.loop-video-section":
+            return <LoopVideoSection data={section}/>
         }
       })}
     </Layout>

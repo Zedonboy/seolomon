@@ -94,30 +94,9 @@ const Navbar = ({ data }) => {
                 </ul>
               </div>
 
-              <div className="others-option d-flex align-items-center">
-                {/* <div className="option-item">
-                                    <div className="cart-btn">
-                                        <Link href="/cart">
-                                            <a>
-                                                <i className="flaticon-shopping-cart"></i>
-                                                <span>1</span>
-                                            </a>
-                                        </Link>
-                                    </div>
-                                </div> */}
-
-                <div className="option-item">
-                  <div className="search-box" onClick={handleToggleSearchModal}>
-                    <i className="flaticon-search"></i>
-                  </div>
-                </div>
-
-                {/* <div className="option-item">
-                                    <div className="side-menu-btn" onClick={handleToggleSidebarModal}>
-                                        <i className="flaticon-menu"></i>
-                                    </div>
-                                </div> */}
-              </div>
+              {/* <div className="others-option d-flex align-items-center">
+                
+              </div> */}
             </nav>
           </div>
         </div>
