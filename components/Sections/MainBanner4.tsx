@@ -38,7 +38,7 @@ const MainBanner = (props: { data: IBanner }) => {
         <div className="main-banner-content">
           <span className="sub-title">{props?.data?.text1}</span>
           <h1>{props?.data?.text2}</h1>
-          <div className="overflow-hidden h-16">
+          <div className="overflow-hidden h-10">
             {props?.data?.slides?.map((v, i) => (
               <Transition
                 show={i === currSlide}

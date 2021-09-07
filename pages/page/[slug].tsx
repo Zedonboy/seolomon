@@ -28,10 +28,11 @@ import VideoCaseStudiesTwo from "../../components/Sections/VideoCardSection";
 import History from "../../components/Sections/History";
 import SlidingBanner from "../../components/Sections/MainBanner2";
 import CenterBanner from "../../components/Sections/MainBanner3";
-import LeftRightSection from "../../components/Sections/LeftRightSection";
 import TranTextBanner from "../../components/Sections/MainBanner4";
 import RVideoInfoSection from "../../components/Sections/RVideoInfoSection";
 import LoopVideoSection from "../../components/Sections/AutoLoopVideoSection";
+import GradientBanner from "../../components/Sections/GradientBanner"
+import TestimonialSection from "../../components/Sections/TestimonialSection"
 
 export default function Home({ site, page, posts }) {
   let GlobalStyleComponent = null;
@@ -117,6 +118,10 @@ export default function Home({ site, page, posts }) {
             return <TranTextBanner data={section} />;
           case "page-sections.loop-video-section":
             return <LoopVideoSection data={section} />;
+          case "page-sections.alternate-testimonial-section":
+            return <TestimonialSection data={section} />;
+          case "page-sections.gradient-banner":
+            return <GradientBanner data={section} />;
         }
       })}
     </Layout>

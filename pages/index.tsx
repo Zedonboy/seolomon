@@ -32,6 +32,8 @@ import LeftRightSection from "../components/Sections/LeftRightSection";
 import TranTextBanner from "../components/Sections/MainBanner4"
 import RVideoInfoSection from "../components/Sections/RVideoInfoSection"
 import LoopVideoSection from "../components/Sections/AutoLoopVideoSection"
+import GradientBanner from "../components/Sections/GradientBanner"
+import TestimonialSection from "../components/Sections/TestimonialSection"
 
 export default function Home({ site, page, posts }) {
   let GlobalStyleComponent = null;
@@ -58,7 +60,7 @@ export default function Home({ site, page, posts }) {
         ))}
       </Head>
       <GlobalStyleComponent />
-      
+      {/* <GradientBanner/> */}
       {page?.layout?.map((section) => {
         switch (section.__component) {
           case "page-sections.main-banner":
@@ -117,6 +119,11 @@ export default function Home({ site, page, posts }) {
             return <TranTextBanner data={section}/>
           case "page-sections.loop-video-section":
             return <LoopVideoSection data={section}/>
+          case "page-sections.alternate-testimonial-section":
+            return <TestimonialSection data={section}/>
+          case "page-sections.gradient-banner":
+            return <GradientBanner data={section}/>
+          
         }
       })}
     </Layout>

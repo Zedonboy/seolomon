@@ -12,7 +12,7 @@ const MainBanner = (props : {data : IBanner}) => {
     return (
         <div className="banner-area">
             <div className="container">
-                <div className="main-banner-content main-banner">
+                <div className="main-banner-content">
                     <span className="sub-title">{props?.data?.text1}</span>
                     <h1>{props?.data?.text2}</h1>
                     <p>{props?.data?.text3}</p>

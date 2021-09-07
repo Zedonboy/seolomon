@@ -1,7 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import GoTop from "./GoTop";
-import Navbar from "../_App/Navbar";
+import Navbar from "../_App/NavbarStyleFour";
+
 import Footer from "../Sections/Footer.tsx";
 const Layout = ({ children, siteData }) => {
   return (
