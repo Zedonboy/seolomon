@@ -5,6 +5,7 @@ interface IGradientBanner {
   text2 : string
   actionBtnText : string
   actionBtnLink : string
+  cover : any
 }
 const MainBanner = (props : {data : IGradientBanner}) => {
   return (
@@ -34,7 +35,7 @@ const MainBanner = (props : {data : IGradientBanner}) => {
               </a>
             </div>
           </div>
-          <img src="/images/banner-img5.png" alt="image" />
+          <img src={props?.data?.cover?.url} alt="image" />
         </div>
       </div>
 

@@ -47,7 +47,7 @@ const NavbarStyleFour = ({ data }) => {
             <nav className="navbar navbar-expand-lg navbar-light">
               <Link href="/">
                 <a onClick={toggleNavbar} className="navbar-brand">
-                  <img src={data?.logo?.url} alt="logo" />
+                  <img className="h-[4rem]" src={data?.logo?.url} alt="logo" />
                 </a>
               </Link>
 

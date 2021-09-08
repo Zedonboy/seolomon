@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
+import React from "react";
+import dynamic from "next/dynamic";
+const OwlCarousel = dynamic(import("react-owl-carousel3"));
 
 interface Testimonial {
   name: string;
+  occupation: string;
   profile: any;
   message: string;
 }
@@ -26,124 +30,83 @@ function skipper(arr = [], count = 0, rslt = [[], [], []]) {
   }
 }
 
-export default function TestimonialSection(props: {
-  data: ITestimonialSection;
-}) {
-  let [z, setZ] = useState([])
-  useEffect(() => {
-    let z = skipper(props?.data?.children);
-    setZ(z)
-  }, [])
+const options = {
+  loop: true,
+  nav: false,
+  dots: true,
+  autoplayHoverPause: true,
+  autoplay: true,
+  animateOut: "fadeOut",
+  animateIn: "fadeIn",
+  items: 1,
+  navText: [
+    "<i class='flaticon-back'></i>",
+    "<i class='flaticon-chevron'></i>",
+  ],
+};
+
+const TestimonialStyleTwo = (props: { data: ITestimonialSection }) => {
+  const [display, setDisplay] = React.useState(false);
+
+  React.useEffect(() => {
+    setDisplay(true);
+  }, []);
+
   return (
-    <div>
-      {/* component */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html:
-            "@import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css')",
-        }}
-      />
-        <div className="w-full bg-white border-t border-b border-gray-200 px-5 py-16 md:py-24 text-gray-800">
-          <div className="w-full max-w-6xl mx-auto">
-            <div className="text-center max-w-xl mx-auto">
-              <h1 className="text-6xl md:text-7xl font-bold mb-5 text-gray-600">
-                {props?.data?.text1}
-              </h1>
-              <h3 className="text-xl mb-5 font-light">{props?.data?.text2}</h3>
-              <div className="text-center mb-10">
-                <span className="inline-block w-1 h-1 rounded-full bg-indigo-500 ml-1" />
-                <span className="inline-block w-3 h-1 rounded-full bg-indigo-500 ml-1" />
-                <span className="inline-block w-40 h-1 rounded-full bg-indigo-500" />
-                <span className="inline-block w-3 h-1 rounded-full bg-indigo-500 ml-1" />
-                <span className="inline-block w-1 h-1 rounded-full bg-indigo-500 ml-1" />
-              </div>
+    <div className="feedback-area ptb-100">
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-lg-6 col-md-12">
+            <div className="feedback-image">
+              <img src="/images/feedback-img1.jpg" alt="image" />
+              <img src="/images/feedback-img2.jpg" alt="image" />
+              <img src="/images/feedback-img3.jpg" alt="image" />
+              <img src="/images/feedback-img4.jpg" alt="image" />
             </div>
-            <div className="-mx-3 md:flex items-start">
-              <div className="px-3 md:w-1/3">
-                {z[0]?.map((v, i) => (
-                  <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
-                    <div className="w-full flex mb-4 items-center">
-                      <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                        <img src={v?.profile?.url} alt="profile_phot" />
-                      </div>
-                      <div className="flex-grow pl-3">
-                        <h6 className="font-bold text-sm uppercase text-gray-600">
-                          {v?.name}
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="w-full">
-                      <p className="text-sm leading-tight">
-                        <span className="text-lg leading-none italic font-bold text-gray-400 mr-1">
-                          "
-                        </span>
+          </div>
+
+          <div className="col-lg-6 col-md-12">
+            <div className="feedback-content">
+              <span className="sub-title">{props?.data?.text1}</span>
+              <h2>{props?.data?.text2}</h2>
+
+              {display ? (
+                <OwlCarousel
+                  //@ts-ignore
+                  className="feedback-slides owl-carousel owl-theme"
+                  {...options}
+                >
+                  {props?.data?.children?.map((v) => (
+                    <div className="single-feedback-item">
+                      <p>
                         {v?.message}
-                        <span className="text-lg leading-none italic font-bold text-gray-400 ml-1">
-                          "
-                        </span>
                       </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="px-3 md:w-1/3">
-                {z[1]?.map((v, i) => (
-                  <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
-                    <div className="w-full flex mb-4 items-center">
-                      <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                        <img src={v?.profile?.url} alt="profile_phot" />
-                      </div>
-                      <div className="flex-grow pl-3">
-                        <h6 className="font-bold text-sm uppercase text-gray-600">
-                          {v?.name}
-                        </h6>
+
+                      <div className="client-info">
+                        <div className="d-flex align-items-center">
+                          <img src={v?.profile?.url} alt="image" />
+                          <div className="title">
+                            <h3>{v?.name}</h3>
+                            <span>{v?.occupation}</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div className="w-full">
-                      <p className="text-sm leading-tight">
-                        <span className="text-lg leading-none italic font-bold text-gray-400 mr-1">
-                          "
-                        </span>
-                        {v?.message}
-                        <span className="text-lg leading-none italic font-bold text-gray-400 ml-1">
-                          "
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="px-3 md:w-1/3">
-                {z[2]?.map((v, i) => (
-                  <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
-                    <div className="w-full flex mb-4 items-center">
-                      <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                        <img src={v?.profile?.url} alt="profile_phot" />
-                      </div>
-                      <div className="flex-grow pl-3">
-                        <h6 className="font-bold text-sm uppercase text-gray-600">
-                          {v?.name}
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="w-full">
-                      <p className="text-sm leading-tight">
-                        <span className="text-lg leading-none italic font-bold text-gray-400 mr-1">
-                          "
-                        </span>
-                        {v?.message}
-                        <span className="text-lg leading-none italic font-bold text-gray-400 ml-1">
-                          "
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </OwlCarousel>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>
       </div>
-  );
-}
 
+      <div className="shape16">
+        <img src="/images/shape/shape16.png" alt="image" />
+      </div>
+    </div>
+  );
+};
+
+export default TestimonialStyleTwo;
