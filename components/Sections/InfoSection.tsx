@@ -14,8 +14,8 @@ const InfoSection = (props : {data : InfoSection}) => {
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-lg-6 col-md-12">
-                        <div className="project-start-image rounded-xl overflow-hidden">
-                            <img className="rounded-xl" src={props?.data?.cover?.url} alt="image" />
+                        <div className="project-start-image rounded-3xl overflow-hidden">
+                            <img className="rounded-3xl" src={props?.data?.cover?.url} alt="image" />
                         </div>
                     </div>
 

@@ -34,7 +34,7 @@ import RVideoInfoSection from "../components/Sections/RVideoInfoSection"
 import LoopVideoSection from "../components/Sections/AutoLoopVideoSection"
 import GradientBanner from "../components/Sections/GradientBanner"
 import TestimonialSection from "../components/Sections/TestimonialSection"
-
+import SLidingSection from "../components/Sections/SlidingStepSection"
 export default function Home({ site, page, posts }) {
   let GlobalStyleComponent = null;
   GlobalStyleComponent = createGlobalStyle`
@@ -60,7 +60,7 @@ export default function Home({ site, page, posts }) {
         ))}
       </Head>
       <GlobalStyleComponent />
-      {/* <GradientBanner/> */}
+            
       {page?.layout?.map((section) => {
         switch (section.__component) {
           case "page-sections.main-banner":
@@ -123,7 +123,8 @@ export default function Home({ site, page, posts }) {
             return <TestimonialSection data={section}/>
           case "page-sections.gradient-banner":
             return <GradientBanner data={section}/>
-          
+          case "page-sections.sliding-step-section":
+            return <SLidingSection data={section}/>
         }
       })}
     </Layout>

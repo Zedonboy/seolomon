@@ -26,8 +26,8 @@ const RInfoSection = (props : {data : InfoSection}) => {
                         </div>
                     </div>
                     <div className="col-lg-6 col-md-12">
-                        <div className="project-start-image">
-                            <img className="rounded-xl overflow-hidden" src={props?.data?.cover?.url} alt="image" />
+                        <div className="project-start-image rounded-3xl overflow-hidden">
+                            <img className="rounded-3xl" src={props?.data?.cover?.url} alt="image" />
                         </div>
                     </div>
                 </div>

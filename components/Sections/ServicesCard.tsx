@@ -44,13 +44,13 @@ const ServicesCard = (props : {data : ICardSection}) => {
                             </h3>
                             <p>{v?.secondaryText}</p>
 
-                            <Link href={v?.link || ""}>
+                            {/* <Link href={v?.link || ""}>
                                 <a className="learn-more-btn">
                                     <i className="left-icon flaticon-next-button"></i> 
                                     Learn More 
                                     <i className="right-icon flaticon-next-button"></i>
                                 </a>
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                     ))}
