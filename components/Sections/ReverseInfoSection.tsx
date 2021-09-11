@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import {motion, useAnimation} from "framer-motion"
 interface InfoSection {
     cover: any,
     title: string,
@@ -9,12 +10,57 @@ interface InfoSection {
     actionBtnText:string
 }
 const RInfoSection = (props : {data : InfoSection}) => {
+    let ref = useRef()
+    let imgControl = useAnimation()
+    let textControl = useAnimation()
+    useEffect(() => {
+        let observer = new IntersectionObserver((e, o) => {
+            e.forEach(entry => {
+                if(entry.isIntersecting){
+                    imgControl.start({
+                        x:0,
+                        opacity: 1,
+                        transition: {
+                            delay: 0.5,
+                            duration: 1
+                        }
+                    })
+
+                    textControl.start(
+                        {
+                            x:0,
+                            opacity: 1,
+                            transition: {
+                                delay: 0.5,
+                                duration: 1
+                            }
+                        }
+                    )
+                }
+            })
+        }, {
+            root: null,
+            rootMargin: "0px",
+            threshold: [0, 1.0]
+        })
+
+        if(ref.current){
+            observer.observe(ref.current)
+        }
+
+        return () => {
+            observer.unobserve(ref.current)
+        }
+    }, [])
     return (
-        <div className="project-start-area ptb-100">
+        <div ref={ref} className="project-start-area ptb-100">
             <div className="container">
                 <div className="row align-items-center">
                     
-                    <div className="col-lg-6 col-md-12">
+                    <motion.div initial={{
+                        x: -10,
+                        opacity:0
+                    }} animate={textControl} className="col-lg-6 col-md-12">
                         <div className="project-start-content">
                             <span className="sub-title">{props?.data?.preText}</span>
                             <h2>{props?.data?.title}</h2>
@@ -24,12 +70,15 @@ const RInfoSection = (props : {data : InfoSection}) => {
                                 <a className="default-btn">{props?.data?.actionBtnText}</a>
                             </Link>
                         </div>
-                    </div>
-                    <div className="col-lg-6 col-md-12">
+                    </motion.div>
+                    <motion.div initial={{
+                        x: 10,
+                        opacity: 0
+                    }} animate={imgControl} className="col-lg-6 col-md-12">
                         <div className="project-start-image rounded-3xl overflow-hidden">
                             <img className="rounded-3xl" src={props?.data?.cover?.url} alt="image" />
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 

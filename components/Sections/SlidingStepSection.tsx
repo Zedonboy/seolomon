@@ -13,19 +13,16 @@ interface StepSection {
 
 const xOffset = 1000;
 const variants = {
-  enter: (direction) => ({
-    x: direction > 0 ? xOffset : -xOffset,
+  enter:{
     opacity: 0,
-  }),
-  active: {
-    x: 0,
-    opacity: 1,
-    transition: { delay: 0.8 },
   },
-  exit: (direction) => ({
-    x: direction > 0 ? -xOffset : xOffset,
+  active: {
+    opacity: 1,
+    transition: { delay: 0.3 },
+  },
+  exit:{
     opacity: 0,
-  }),
+  }
 };
 
 let arr = [
@@ -49,37 +46,42 @@ let arr = [
   },
 ];
 const InfoSection = (props: { data: StepSection }) => {
-  const [[currentPage, direction], setCurrentPage] = useState([0, 0]);
-  useEffect(() => {
-    if(props?.data?.steps?.length === 0) return
-    let td = setTimeout(() => {
-      if (currentPage === props?.data?.steps?.length - 1) {
-        setPage(0, undefined);
-      } else setPage(currentPage + 1, undefined);
-    }, 6000);
+  const [currentPage, setCurrentPage] = useState(0);
 
-    return () => clearTimeout(td);
-  }, [currentPage]);
-  function setPage(newPage, newDirection) {
-    if (!newDirection) newDirection = newPage - currentPage;
-    setCurrentPage([newPage, newDirection]);
-  }
   if(!props?.data?.steps) return null 
   return (
     <div className="project-start-area ptb-100 md:max-h-[100vh] overflow-hidden">
+      <div className="w-full container justify-around items-center py-8 flex">
+        <button onClick={e => {
+          if(currentPage === 0){
+            setCurrentPage(props.data.steps.length - 1)
+          } else {
+            setCurrentPage(currentPage - 1)
+          }
+        }} className="rounded-md border-2 hover:bg-blue-700 hover:text-white border-blue-700 px-6 text-blue-700 py-1">Prev</button>
+        <div className="flex space-x-1">
+          {props.data.steps.map((v,i) => (
+            <button onClick={e => {
+              setCurrentPage(i)
+            }} className={`w-2 h-2 rounded-full ${i === currentPage ? "bg-blue-700" : "bg-blue-100"}`}></button>
+          ))}
+        </div>
+        <button onClick={e => {
+          if(currentPage === (props.data.steps.length - 1)){
+            setCurrentPage(0)
+          } else {
+            setCurrentPage(currentPage + 1)
+          }
+        }} className="rounded-md border-2 border-blue-700 px-6 hover:bg-blue-700 hover:text-white text-blue-700 py-1">Next</button>
+      </div>
       <div className="container">
-        <AnimatePresence custom={direction}>
+        <AnimatePresence>
           <motion.div
           key={currentPage}
             variants={variants}
             initial="enter"
             animate="active"
             exit="exit"
-            // transition={{
-            //     x: { type: "spring", stiffness: 300, damping: 30 },
-            //     opacity: { duration: 0.2 }
-            //   }}
-            custom={direction}
             className="row align-items-center  overflow-hidden"
           >
             <div
