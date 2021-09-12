@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import GoTop from "./GoTop";
 import Navbar from "../_App/NavbarStyleFour";
 
 import Footer from "../Sections/Footer.tsx";
 const Layout = ({ children, siteData }) => {
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-NZVMQ77QHP');
+  }, [])
   return (
     <>
       <Head>
@@ -19,6 +26,7 @@ const Layout = ({ children, siteData }) => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <link rel="canonical" href="https://seolo.ca/"></link>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZVMQ77QHP"></script>
       </Head>
       <Navbar data={siteData}/>
 
