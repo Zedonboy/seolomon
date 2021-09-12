@@ -25,7 +25,7 @@ const Layout = ({ children, siteData }) => {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <link rel="canonical" href="https://seolo.ca/"></link>
+        <link rel="canonical" href="https://seolo.ai/"></link>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZVMQ77QHP"></script>
       </Head>
       <Navbar data={siteData}/>
