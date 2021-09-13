@@ -31,8 +31,11 @@ import CenterBanner from "../../components/Sections/MainBanner3";
 import TranTextBanner from "../../components/Sections/MainBanner4";
 import RVideoInfoSection from "../../components/Sections/RVideoInfoSection";
 import LoopVideoSection from "../../components/Sections/AutoLoopVideoSection";
-import GradientBanner from "../../components/Sections/GradientBanner"
-import TestimonialSection from "../../components/Sections/TestimonialSection"
+import GradientBanner from "../../components/Sections/GradientBanner";
+import TestimonialSection from "../../components/Sections/TestimonialSection";
+import SLidingSection from "../../components/Sections/SlidingStepSection";
+import Headline from "../../components/Sections/Headline";
+import AltStepSection from "../../components/Sections/AltStepSection";
 
 export default function Home({ site, page, posts }) {
   let GlobalStyleComponent = null;
@@ -122,6 +125,12 @@ export default function Home({ site, page, posts }) {
             return <TestimonialSection data={section} />;
           case "page-sections.gradient-banner":
             return <GradientBanner data={section} />;
+          case "page-sections.sliding-step-section":
+            return <SLidingSection data={section} />;
+          case "page-sections.renex-step-section":
+            return <AltStepSection data={section} />;
+          case "page-sections.headline":
+            return <Headline data={section} />;
         }
       })}
     </Layout>

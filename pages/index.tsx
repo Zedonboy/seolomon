@@ -35,6 +35,8 @@ import LoopVideoSection from "../components/Sections/AutoLoopVideoSection"
 import GradientBanner from "../components/Sections/GradientBanner"
 import TestimonialSection from "../components/Sections/TestimonialSection"
 import SLidingSection from "../components/Sections/SlidingStepSection"
+import Headline from "../components/Sections/Headline"
+import AltStepSection from "../components/Sections/AltStepSection"
 export default function Home({ site, page, posts }) {
   let GlobalStyleComponent = null;
   GlobalStyleComponent = createGlobalStyle`
@@ -60,7 +62,6 @@ export default function Home({ site, page, posts }) {
         ))}
       </Head>
       <GlobalStyleComponent />
-            
       {page?.layout?.map((section) => {
         switch (section.__component) {
           case "page-sections.main-banner":
@@ -125,6 +126,10 @@ export default function Home({ site, page, posts }) {
             return <GradientBanner data={section}/>
           case "page-sections.sliding-step-section":
             return <SLidingSection data={section}/>
+          case "page-sections.renex-step-section":
+            return <AltStepSection data={section}/>
+          case "page-sections.headline":
+            return <Headline data={section}/>
         }
       })}
     </Layout>

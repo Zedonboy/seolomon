@@ -59,25 +59,17 @@ const Footer = (props : {data : FooterSection}) => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/about-us-1">
-                                        <a>About</a>
+                                    <Link href="/blog">
+                                        <a>Blog</a>
                                     </Link>
                                 </li>
+
                                 <li>
                                     <Link href="/pricing">
-                                        <a>Pricing</a>
+                                        <a>pricing</a>
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link href="/portfolio-1">
-                                        <a>Portfolio</a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/contact">
-                                        <a>Contact</a>
-                                    </Link>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
