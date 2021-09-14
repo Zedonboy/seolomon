@@ -56,7 +56,7 @@ const DigitalExperience = (props: { data: IStepSection }) => {
                       {v?.children?.map((v) => (
                         <div className="experience-inner-content">
                           <div className="icon">
-                            <i className="flaticon-check"></i>
+                            <i className="fas fa-check"></i>
                           </div>
                           <h3>{v?.text1}</h3>
                           <p>

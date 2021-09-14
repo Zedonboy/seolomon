@@ -5,10 +5,13 @@ interface SubscribeSection {
     text1:string
     text2:string
     text3:string
+    bgColor:string
 }
 const SubscribeForm = (props : {data : SubscribeSection}) => {
     return (
-        <div className="subscribe-area ptb-100">
+        <div style={{
+            backgroundColor: props?.data?.bgColor
+        }} className="subscribe-area py-10">
             <div className="container">
                 <div className="subscribe-content">
                     <span className="sub-title">{props?.data?.text1}</span>

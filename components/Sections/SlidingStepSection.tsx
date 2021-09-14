@@ -8,10 +8,10 @@ interface InfoSection {
 }
 
 interface StepSection {
+  bgColor : string
   steps: InfoSection[];
 }
 
-const xOffset = 1000;
 const variants = {
   enter:{
     opacity: 0,
@@ -25,32 +25,14 @@ const variants = {
   }
 };
 
-let arr = [
-  {
-    cover: { url: "/images/blog/blog-img1.jpg" },
-    title: "Bioma",
-    preText: "Step 1",
-    secondaryText: "bvhjvhfbvfdbvjhfbd fnvjfnvfdnvjfnd fdvfbvfjvbjfdvnbfvn",
-  },
-  {
-    cover: { url:  "/images/blog/blog-img2.jpg" },
-    title: "Vera",
-    preText: "Step 2",
-    secondaryText: "bvhjvhfbvfdbvjhfbd fdvfbvfjvbjfdvnbfvn",
-  },
-  {
-    cover: { url:  "/images/blog/blog-img3.jpg" },
-    title: "Veafra",
-    preText: "Step 3",
-    secondaryText: "bvhjvhfbvfdbvjhfbd fnvjfnvfdnvjfnd fdvfbvfjvbjfdvnbfvn",
-  },
-];
 const InfoSection = (props: { data: StepSection }) => {
   const [currentPage, setCurrentPage] = useState(0);
 
   if(!props?.data?.steps) return null 
   return (
-    <div className="project-start-area ptb-100 md:max-h-[100vh] overflow-hidden">
+    <div style={{
+      backgroundColor: props?.data?.bgColor || undefined
+    }} className="project-start-area pb-8 md:max-h-[100vh] overflow-hidden">
       <div className="w-full container justify-around items-center py-8 flex">
         <button onClick={e => {
           if(currentPage === 0){
