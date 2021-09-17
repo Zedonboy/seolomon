@@ -3,12 +3,12 @@ import PageBanner from "../../components/Sections/PageBanner";
 import BlogSidebar from "../../components/Blog/BlogSidebar";
 import Layout from "../../components/_App/Layout";
 import { API_URL } from "../../config/api";
-var showdown  = require('showdown')
+var showdown = require("showdown");
 
 const BlogDetails = ({ site, post }) => {
   return (
     <Layout siteData={site}>
-      <PageBanner data={{pageName:"Seolomon Blog"}} />
+      <PageBanner data={{ pageName: "Seolomon Blog" }} />
 
       <div className="blog-details-area bg-f9f9f9 ptb-100">
         <div className="container">
@@ -20,10 +20,7 @@ const BlogDetails = ({ site, post }) => {
                 </div>
 
                 <div
-                  dangerouslySetInnerHTML={{ __html: function(){
-                    let conv = new showdown.Converter()
-                    return conv.makeHtml(post?.content);
-                  }() }}
+                  dangerouslySetInnerHTML={{ __html: post?.content }}
                   className="article-content"
                 >
                   {/* <div className="entry-meta">
@@ -125,9 +122,7 @@ const BlogDetails = ({ site, post }) => {
             </div>
 
             <div className="col-lg-4 col-md-12">
-              <div className="blog-right-sidebar">
-                {/* <BlogSidebar /> */}
-              </div>
+              <div className="blog-right-sidebar">{/* <BlogSidebar /> */}</div>
             </div>
           </div>
         </div>
@@ -149,6 +144,10 @@ export async function getServerSideProps(ctx) {
   if (resp.status === 200 && postData.status === 200) {
     let site = await resp.json();
     let [post] = await postData.json();
+    if (!post)
+      return {
+        notFound: true,
+      };
     return {
       props: {
         site,
