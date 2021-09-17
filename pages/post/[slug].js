@@ -3,7 +3,6 @@ import PageBanner from "../../components/Sections/PageBanner";
 import BlogSidebar from "../../components/Blog/BlogSidebar";
 import Layout from "../../components/_App/Layout";
 import { API_URL } from "../../config/api";
-var showdown = require("showdown");
 
 const BlogDetails = ({ site, post }) => {
   return (
