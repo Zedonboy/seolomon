@@ -1,4 +1,3 @@
-var showdown  = require('showdown')
 interface IRichContentSection {
   cover: any;
   content: string;
@@ -17,10 +16,7 @@ export default function RichContentSection(props: {
               </div>
 
               <div
-                dangerouslySetInnerHTML={{ __html: function(){
-                  let conv = new showdown.Converter()
-                  return conv.makeHtml(props?.data?.content);
-                }() }}
+                dangerouslySetInnerHTML={{ __html: props?.data?.content}}
                 className="article-content"
               >
                 
