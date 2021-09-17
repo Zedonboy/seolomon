@@ -29,6 +29,8 @@ const Layout = ({ children }) => {
         <link rel="stylesheet" href="/fontawesome/css/brands.min.css" />
         <link rel="stylesheet" href="/fontawesome/css/solid.min.css" />
         <link rel="stylesheet" href="/fontawesome/css/fontawesome.min.css" />
+        <link rel="stylesheet" href="/city/css/style.css" />
+        <link rel="stylesheet" href="/city/css/responsive.css" />
       </Head>
 
       {children}

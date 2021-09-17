@@ -56,7 +56,7 @@ export default function Home({ site, page, posts }) {
   return (
     <Layout siteData={site}>
       <Head>
-        <title>{page?.title}</title>
+        <title>{page?.title || "Seolo.ai"}</title>
         {page?.meta?.map((meta) => (
           <meta property={meta?.property} content={meta?.content} />
         ))}
