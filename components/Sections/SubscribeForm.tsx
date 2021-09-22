@@ -11,30 +11,38 @@ interface SubscribeSection {
 const SubscribeForm = (props : {data : SubscribeSection}) => {
     let [email, setEmail] = useState("")
     let [submitSuccess, setSubmitSuccess] = useState(false)
-    let onSubmit = useCallback((e) => {
+    let onSubmit = useCallback((e, email) => {
         fetch(`${API_URL}/mail-subscribers`, {
             method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
             body: JSON.stringify({
-                email
+                email:email
             })
         }).then(r => {
             if(r.status === 200){
                 setSubmitSuccess(true)
             }
+        }).catch(e => {
+            console.log(e)
         })
-    }, [email])
+
+        e.preventDefault()
+    }, [])
     return (
         <div style={{backgroundImage: `linear-gradient(to right, ${props?.data?.gradientStart || ""}, ${props?.data?.gradientEnd || ""});`}} className="subscribe-area ptb-100">
             <div className="container">
                 <div className="subscribe-content">
                     <span className="sub-title">{props?.data?.text1}</span>
                     <h2>{props?.data?.text2}</h2>
-                    <p>{props?.data?.text3}</p>
-                    
+                    <p>{props?.data?.text3}</p>      
                     {submitSuccess ? (
                         <p className="text-3xl text-green-500">We will keep you updated!</p>
                     ) : (
-                        <form onSubmit={onSubmit} className="newsletter-form">
+                        <form onSubmit={e => {
+                            onSubmit(e, email)
+                        }} className="newsletter-form">
                         <input value={email} onChange={e => {
                             setEmail(e.target.value)
                         }} type="text" className="input-newsletter" placeholder="Enter your email address" name="EMAIL" required />
