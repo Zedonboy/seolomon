@@ -84,7 +84,7 @@ const TestimonialStyleTwo = (props: { data: ITestimonialSection }) => {
 
                       <div className="client-info">
                         <div className="d-flex align-items-center">
-                          <img src={v?.profile?.url} alt="image" />
+                          {/* <img src={v?.profile?.url} alt="image" /> */}
                           <div className="title">
                             <h3>{v?.name}</h3>
                             <span>{v?.occupation}</span>

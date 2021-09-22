@@ -66,7 +66,7 @@ const NavbarStyleFour = ({ data }) => {
                 <span className="icon-bar bottom-bar"></span>
               </button>
 
-              <div className={classOne} id="navbarSupportedContent">
+              {/* <div className={classOne} id="navbarSupportedContent">
                 <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link href="/" activeClassName="active">
@@ -113,7 +113,7 @@ const NavbarStyleFour = ({ data }) => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
             </nav>
           </div>
         </div>

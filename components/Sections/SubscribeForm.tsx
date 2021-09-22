@@ -5,6 +5,8 @@ interface SubscribeSection {
     text1:string
     text2:string
     text3:string
+    gradientStart:string
+    gradientEnd:string
 }
 const SubscribeForm = (props : {data : SubscribeSection}) => {
     let [email, setEmail] = useState("")
@@ -22,7 +24,7 @@ const SubscribeForm = (props : {data : SubscribeSection}) => {
         })
     }, [email])
     return (
-        <div className="subscribe-area ptb-100">
+        <div style={{backgroundImage: `linear-gradient(to right, ${props?.data?.gradientStart || ""}, ${props?.data?.gradientEnd || ""});`}} className="subscribe-area ptb-100">
             <div className="container">
                 <div className="subscribe-content">
                     <span className="sub-title">{props?.data?.text1}</span>

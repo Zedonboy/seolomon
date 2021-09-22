@@ -24,7 +24,7 @@ const Footer = (props : {data : FooterSection}) => {
                                 </a>
                             </Link>
                             <p>{props?.data?.footerText}</p>
-                            <ul className="social-link">
+                            {/* <ul className="social-link">
                                 <li>
                                     <a href="https://www.facebook.com/" className="d-block" target="_blank">
                                         <i className='bx bxl-facebook'></i>
@@ -45,12 +45,12 @@ const Footer = (props : {data : FooterSection}) => {
                                         <i className='bx bxl-linkedin'></i>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> */}
                         </div>
                     </div>
 
                     <div className="col-lg-2 col-md-6 col-sm-6">
-                        <div className="single-footer-widget pl-5">
+                        {/* <div className="single-footer-widget pl-5">
                             <h3>Explore</h3>
                             <ul className="footer-links-list">
                                 <li>
@@ -71,11 +71,11 @@ const Footer = (props : {data : FooterSection}) => {
                                 </li>
                                 
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="col-lg-2 col-md-6 col-sm-6">
-                        <div className="single-footer-widget pl-2">
+                        {/* <div className="single-footer-widget pl-2">
                             <h3>Resources</h3>
                             <ul className="footer-links-list">
                                 <li>
@@ -104,7 +104,7 @@ const Footer = (props : {data : FooterSection}) => {
                                     </Link>
                                 </li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-sm-6">
