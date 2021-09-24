@@ -1,4 +1,5 @@
 //import 'tailwindcss/tailwind.css'
+import "../assets/add.css"
 import "../assets/tailwind.css"
 import '../public/css/bootstrap.min.css'
 import '../public/css/animate.min.css'

@@ -28,7 +28,7 @@ import VideoCaseStudiesTwo from "../components/Sections/VideoCardSection";
 import History from "../components/Sections/History"
 import SlidingBanner from "../components/Sections/MainBanner2"
 import CenterBanner from "../components/Sections/MainBanner3"
-import LeftRightSection from "../components/Sections/LeftRightSection";
+//import LeftRightSection from "../components/Sections/LeftRightSection";
 import TranTextBanner from "../components/Sections/MainBanner4"
 import RVideoInfoSection from "../components/Sections/RVideoInfoSection"
 import LoopVideoSection from "../components/Sections/AutoLoopVideoSection"
@@ -37,6 +37,7 @@ import TestimonialSection from "../components/Sections/TestimonialSection"
 import SLidingSection from "../components/Sections/SlidingStepSection"
 import Headline from "../components/Sections/Headline"
 import AltStepSection from "../components/Sections/AltStepSection"
+import CitySearch from "../components/Sections/CitySearch"
 export default function Home({ site, page, posts }) {
   let GlobalStyleComponent = null;
   GlobalStyleComponent = createGlobalStyle`
@@ -130,6 +131,8 @@ export default function Home({ site, page, posts }) {
             return <AltStepSection data={section}/>
           case "page-sections.headline":
             return <Headline data={section}/>
+          case "page-sections.city-searcher":
+            return <CitySearch data={section}/>
         }
       })}
     </Layout>

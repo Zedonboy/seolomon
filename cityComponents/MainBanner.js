@@ -11,11 +11,11 @@ const MainBanner = () => {
                             <div className="row align-items-center">
                                 <div className="col-lg-6">
                                     <div className="main-banner-content py-2">
-                                        <h1>We Provide Digital Marketing Solutions</h1>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                                        <h1>Seolo Is at your City</h1>
+                                        <p>We are the seo company, we close to you yo give organic contents.</p>
                                         <div className="banner-btn">
                                             <Link href="/contact-1">
-                                                <a className="default-btn">Get Started</a>
+                                                <a className="default-btn">Where?</a>
                                             </Link>
                                         </div>
                                     </div>

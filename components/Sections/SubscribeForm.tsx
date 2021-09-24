@@ -5,6 +5,7 @@ interface SubscribeSection {
     text1:string
     text2:string
     text3:string
+    actionText:string
     gradientStart:string
     gradientEnd:string
 }
@@ -46,7 +47,7 @@ const SubscribeForm = (props : {data : SubscribeSection}) => {
                         <input value={email} onChange={e => {
                             setEmail(e.target.value)
                         }} type="text" className="input-newsletter" placeholder="Enter your email address" name="EMAIL" required />
-                        <button type="submit" className="default-btn">Subscribe Now</button>
+                        <button type="submit" className="default-btn">{props?.data?.actionText}</button>
                     </form>
                     )}
                     
