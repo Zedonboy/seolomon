@@ -1,5 +1,5 @@
 const mailchimpTx = require("@mailchimp/mailchimp_transactional")(
-  "e18b20718a3c663183824a963088f58f-us5"
+  process.env["MAIL_CHIMP_API"]
 );
 
 export default async (req, res) => {
