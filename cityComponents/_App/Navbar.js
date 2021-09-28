@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from '../../utils/ActiveLink';
 
-const Navbar = () => {
+const Navbar = ({cityName}) => {
     const [menu, setMenu] = React.useState(true)
  
     const toggleNavbar = () => {
@@ -37,7 +37,7 @@ const Navbar = () => {
                         <nav className="navbar navbar-expand-md navbar-light">
                             <Link href="/">
                                 <a onClick={toggleNavbar} className="navbar-brand">
-                                    Barcelona
+                                    {cityName || "City"}
                                     {/* <img src="/images/logo.png" alt="logo" /> */}
                                 </a>
                             </Link>

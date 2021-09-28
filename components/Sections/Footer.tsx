@@ -13,7 +13,9 @@ interface FooterSection {
 const Footer = (props : {data : FooterSection}) => {
     const currentYear = new Date().getFullYear();
     return (
-        <footer className="footer-area">
+        <footer style={{
+            backgroundColor: "#080E32"
+        }} className="footer-area">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-6">

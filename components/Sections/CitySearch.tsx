@@ -11,7 +11,7 @@ export default function CitySearch(props : {data : CitySearcher}) {
   return (
     <div className="bg-gray-100 p-8 md:p-12 flex justify-center items-center">
       <div className="container mx-auto bg-indigo-500 rounded-lg p-14">
-        <form>
+        <div>
           <h1 className="text-center font-bold text-white text-4xl">
             {props?.data?.text1}
             <p className="mx-auto font-normal text-white text-base my-6 max-w-lg">
@@ -38,7 +38,7 @@ export default function CitySearch(props : {data : CitySearcher}) {
               </div>
             </div>
           </h1>
-        </form>
+        </div>
       </div>
     </div>
   );

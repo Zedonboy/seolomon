@@ -9,74 +9,84 @@ import WriteUp from "../../cityComponents/WriteUp";
 import VideoSection from "../../cityComponents/VideoSection";
 import Industries from "../../cityComponents/Industries";
 import Comparator from "../../cityComponents/Comparator";
+import { API_URL } from "../../config/api";
 
-export default function City() {
+import Head from "next/head";
+
+export default function City({ page }) {
   return (
     <Layout>
-      <Navbar />
-      <MainBanner />
+      <Head>
+        <title>{page?.cityName}</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="description" content={`Seolo is in ${page?.cityName}`} />
+        <meta
+          name="og:title"
+          property="og:title"
+          content={`Seolo is in ${page?.cityName}`}
+        ></meta>
+        <meta
+          name="twitter:card"
+          content={`Seolo is in ${page?.cityName}`}
+        ></meta>
+      </Head>
+      <Navbar cityName={page?.cityName} />
+      <MainBanner header={page?.header} />
       <Comparator
         data={{
-          text1: "How seolo match other company",
-          text2: "Bla bla",
-          text3: "Seolo is better that Elephants",
-          compares: [
-            {
-              company_name: "Amazon",
-              children: [
-                {
-                  quality: "Load Speed",
-                  seolo_score: "2ms",
-                  company_score: "100ms",
-                },
-                {
-                  quality: "Recognition",
-                  seolo_score: "true",
-                  company_score: "false",
-                },
-              ],
-            },
-            {
-              company_name: "Google",
-              children: [
-                {
-                  quality: "Load Speed",
-                  seolo_score: "2ms",
-                  company_score: "100ms",
-                },
-                {
-                  quality: "Recognition",
-                  seolo_score: "true",
-                  company_score: "false",
-                },
-              ],
-            },
-            {
-              company_name: "Netflix",
-              children: [
-                {
-                  quality: "Sales",
-                  seolo_score: "2ms",
-                  company_score: "100ms",
-                },
-                {
-                  quality: "Heroes",
-                  seolo_score: "true",
-                  company_score: "false",
-                },
-              ],
-            },
-          ],
+          text1: page?.CompareSection?.text1,
+          text2: page?.CompareSection?.text2,
+          text3: page?.CompareSection?.text3,
+          compares: page?.compares,
         }}
       />
-      
+
       <Features />
       <DigitalExp />
-      <Comparison />
-      <WriteUp />
+
+      <WriteUp content={page?.writeUp} />
       <VideoSection />
       <Industries />
       <Footer />
     </Layout>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  let slug = ctx.params.slug;
+  // let resp = await fetch(`${API_URL}/site`, {
+  //   method: "GET",
+  // });
+  if (!slug)
+    return {
+      notFound: true,
+      props: {},
+    };
+
+  let respData = await fetch(`${API_URL}/cities?slug=${slug}`, {
+    method: "GET",
+  });
+
+  // let postResp = await fetch(`${API_URL}/posts?featured=true`, {
+  //   method: "GET",
+  // });
+
+  if (respData.status === 200) {
+    let pageArr = await respData.json();
+    let page = pageArr[0];
+    //console.log(page)
+    return {
+      props: {
+        page,
+      },
+    };
+  } else {
+    return {
+      notFound: true,
+      props: {},
+    };
+  }
 }
