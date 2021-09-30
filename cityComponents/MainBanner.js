@@ -32,19 +32,19 @@ const MainBanner = (props) => {
                       </div> */}
                     </div>
                   </div>
-                  <div className="col-lg-6">
+                  <div className="col-lg-6 overflow-hidden">
                     <div
                       style={{
                         backgroundImage: `url(${props?.header?.videoCover?.url})`,
                       }}
-                      className="about-image-warp rounded-3xl overflow-hidden h-[500px] image-three"
+                      className="about-image-warp rounded-3xl relative overflow-hidden h-[500px] image-three"
                     >
                       <div
                         onClick={(e) => {
                           e.preventDefault();
                           openModal();
                         }}
-                        className="video-btn popup-youtube"
+                        className="video-btn absolute top-0 left-0 mx-auto my-auto popup-youtube"
                       >
                         <i class="fas fa-play"></i>
                       </div>
