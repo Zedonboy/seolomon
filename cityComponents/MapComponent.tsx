@@ -18,7 +18,7 @@ export default function MapComponent(props: { data: IMapSection }) {
     const map = new mapboxgl.Map({
       container: "map", // container ID
       style: "mapbox://styles/mapbox/streets-v11", // style URL
-      center: [props?.data?.seoloCoord?.long, props?.data?.seoloCoord?.lat], // starting position [lng, lat]
+      center: [props?.data?.seoloCoord?.long || 0, props?.data?.seoloCoord?.lat || 0], // starting position [lng, lat]
       zoom: 6, // starting zoom
     });
 
@@ -48,7 +48,7 @@ export default function MapComponent(props: { data: IMapSection }) {
    
     });
     const marker = new mapboxgl.Marker()
-        .setLngLat([props?.data?.seoloCoord?.long, props?.data?.seoloCoord?.lat])
+        .setLngLat([props?.data?.seoloCoord?.long || 0, props?.data?.seoloCoord?.lat || 0])
         .addTo(map);
   }, [props]);
   return (
