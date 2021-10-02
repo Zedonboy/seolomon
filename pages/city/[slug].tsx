@@ -42,11 +42,13 @@ export default function City({ page }) {
           text3: page?.CompareSection?.text3,
           compares: page?.compares,
         }}
+
+        mapStuff={page?.mapSection}
       />
 
+      
       <Features />
       <DigitalExp />
-
       <WriteUp content={page?.writeUp} />
       <VideoSection />
       <Industries />
