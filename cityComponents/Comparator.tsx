@@ -42,7 +42,7 @@ export default function (props: { data: IComparison, mapStuff:IMapSection }) {
         <h2>{props?.data?.text2}</h2>
         <p>{props?.data?.text3}</p>
       </div>
-      <div className="w-full flex px-8">
+      <div className="w-full flex flex-wrap px-8">
         <div className="w-full md:w-1/2 h-[70vh] md:hidden flex flex-col bg-gray-200 p-4">
           <div className="w-full overflow-auto">
             <ul className="flex mb-0">
@@ -139,7 +139,7 @@ export default function (props: { data: IComparison, mapStuff:IMapSection }) {
           </div>
         </div>
 
-        <div className="w-1/2 p-4 rounded-3xl overflow-hidden">
+        <div className="w-full md:w-1/2 p-4 rounded-3xl overflow-hidden">
           <MapComponent data={props.mapStuff}/>
         </div>
       </div>
