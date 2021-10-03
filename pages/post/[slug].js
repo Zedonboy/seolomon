@@ -12,17 +12,16 @@ const BlogDetails = ({ site, post }) => {
       <div className="blog-details-area bg-f9f9f9 ptb-100">
         <div className="container">
           <div className="row">
-            <div className="col-lg-8 col-md-12">
-              <div className="blog-details-desc">
-                <div className="article-image">
-                  <img src={post?.cover?.url} alt="image" />
-                </div>
+            <div className="col-lg-12 container col-md-12">
+              <div className="article-image">
+                <img src={post?.cover?.url} alt="image" />
+              </div>
 
-                <div
-                  dangerouslySetInnerHTML={{ __html: post?.content }}
-                  className="article-content"
-                >
-                  {/* <div className="entry-meta">
+              <div
+                dangerouslySetInnerHTML={{ __html: post?.content }}
+                className="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl"
+              >
+                {/* <div className="entry-meta">
                                         <ul>
                                             <li>
                                                 <i className='bx bx-folder-open'></i>
@@ -41,9 +40,9 @@ const BlogDetails = ({ site, post }) => {
                                             </li>
                                         </ul>
                                     </div> */}
-                </div>
+              </div>
 
-                {/* <div className="article-footer">
+              {/* <div className="article-footer">
                                     <div className="article-tags">
                                         <span><i className='bx bx-purchase-tag'></i></span>
                                         <a href="#">Fashion</a>
@@ -61,7 +60,7 @@ const BlogDetails = ({ site, post }) => {
                                         </ul>
                                     </div>
                                 </div> */}
-
+              <div className="blog-details-desc">
                 <div className="article-author">
                   <div className="author-profile-header"></div>
                   <div className="author-profile">
@@ -77,8 +76,9 @@ const BlogDetails = ({ site, post }) => {
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* <div className="dibiz-post-navigation">
+              {/* <div className="dibiz-post-navigation">
                                     <div className="prev-link-wrapper">
                                         <div className="info-prev-link-wrapper">
                                             <a href="#">
@@ -116,13 +116,12 @@ const BlogDetails = ({ site, post }) => {
                                     </div>
                                 </div> */}
 
-                {/* <BlogComments />  */}
-              </div>
+              {/* <BlogComments />  */}
             </div>
 
-            <div className="col-lg-4 col-md-12">
-              <div className="blog-right-sidebar">{/* <BlogSidebar /> */}</div>
-            </div>
+            {/* <div className="col-lg-4 col-md-12">
+              <div className="blog-right-sidebar"></div>
+            </div> */}
           </div>
         </div>
       </div>

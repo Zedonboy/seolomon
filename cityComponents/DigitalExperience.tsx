@@ -1,40 +1,54 @@
 import React from 'react';
 import Link from 'next/link';
 
-const ServicesStyleOne = () => {
+interface CardFeature {
+    image:  any
+    title: string
+    desc: string
+    actionLink:string
+}
+interface FeatureSection {
+    text1: string
+    text2: string
+    children: CardFeature[]
+}
+const ServicesStyleOne = (props : {data:FeatureSection}) => {
     return (
         <div className="services-area bg-fff5ee pt-100 pb-70">
             <div className="container">
                 <div className="section-title">
-                    <span>Services we provided</span>
-                    <h2>Our Digital Marketing Services</h2>
+                    <span>{props?.data?.text1}</span>
+                    <h2>{props?.data?.text2}</h2>
                     <div className="bar"></div>
                 </div>
 
                 <div className="row justify-content-center">
-                    <div className="col-lg-4 col-md-6">
-                        <div className="single-services">
-                            <div className="image">
-                                <Link href="/services-details">
-                                    <a>
-                                        <img src="/city/images/services/services-1.png" alt="image" />
-                                    </a>
-                                </Link>
-                            </div>
-                            <h3>
-                                <Link href="/services-details">
-                                    <a>Website Development</a>
-                                </Link>
-                            </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incutu  labore et dolore magna aliqua.</p>
-
-                            <Link href="/services-details">
-                                <a className="services-btn">
-                                    Read More <i className='bx bx-chevrons-right'></i>
-                                </a>
-                            </Link>
-                        </div>
-                    </div>
+                    {props?.data?.children?.map(v => (
+                         <div className="col-lg-4 col-md-6">
+                         <div className="single-services">
+                             <div className="image">
+                                 <Link href={v?.actionLink || ""}>
+                                     <a>
+                                         <img src={v?.image?.url} alt="image" />
+                                     </a>
+                                 </Link>
+                             </div>
+                             <h3>
+                                 <Link href={v?.actionLink || ""}>
+                                     <a>{v?.title}</a>
+                                 </Link>
+                             </h3>
+                             <p>{v?.desc}</p>
+ 
+                             <Link href={v?.actionLink || ""}>
+                                 <a className="services-btn">
+                                     Read More <i className='bx bx-chevrons-right'></i>
+                                 </a>
+                             </Link>
+                         </div>
+                     </div>
+                    ))}
+                   
 
                     <div className="col-lg-4 col-md-6">
                         <div className="single-services">

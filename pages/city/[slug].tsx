@@ -42,13 +42,11 @@ export default function City({ page }) {
           text3: page?.CompareSection?.text3,
           compares: page?.compares,
         }}
-
         mapStuff={page?.mapSection}
       />
 
-      
       <Features />
-      <DigitalExp />
+      <DigitalExp data={page?.featuresSection}/>
       <WriteUp content={page?.writeUp} />
       <VideoSection />
       <Industries />
@@ -78,13 +76,20 @@ export async function getServerSideProps(ctx) {
 
   if (respData.status === 200) {
     let pageArr = await respData.json();
-    let page = pageArr[0];
+    if (pageArr && pageArr.length > 0) {
+      let page = pageArr[0];
+      return {
+        props: {
+          page,
+        },
+      };
+    } else
+      return {
+        notFound: true,
+        props: {},
+      };
+
     //console.log(page)
-    return {
-      props: {
-        page,
-      },
-    };
   } else {
     return {
       notFound: true,
