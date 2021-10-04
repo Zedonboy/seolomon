@@ -45,11 +45,11 @@ export default function City({ page }) {
         mapStuff={page?.mapSection}
       />
 
-      <Features />
+      {/* <Features /> */}
       <DigitalExp data={page?.featuresSection}/>
       <WriteUp content={page?.writeUp} />
-      <VideoSection />
-      <Industries />
+      {/* <VideoSection /> */}
+      {/* <Industries /> */}
       <Footer />
     </Layout>
   );

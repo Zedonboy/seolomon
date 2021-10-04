@@ -67,13 +67,13 @@ const Navbar = ({cityName}) => {
                                     <i className="search-btn flaticon-loupe" onClick={handleToggleSearchModal} ></i>
                                 </div>
 
-                                <div className="option-item">
+                                {/* <div className="option-item">
                                     <Link href="/contact-1">
                                         <a className="default-btn">
                                             Get Quote
                                         </a>
                                     </Link>
-                                </div>
+                                </div> */}
                             </div>
                         </nav>
                     </div>

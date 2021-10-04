@@ -14,32 +14,14 @@ const BlogDetails = ({ site, post }) => {
           <div className="row">
             <div className="col-lg-12 container col-md-12">
               <div className="article-image">
-                <img src={post?.cover?.url} alt="image" />
+                {post?.cover?.url ? (<img src={post?.cover?.url} alt="image" />) : null}
               </div>
 
               <div
                 dangerouslySetInnerHTML={{ __html: post?.content }}
                 className="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl"
               >
-                {/* <div className="entry-meta">
-                                        <ul>
-                                            <li>
-                                                <i className='bx bx-folder-open'></i>
-                                                <span>Category</span>
-                                                <a href="#">Fashion</a>
-                                            </li>
-                                            <li>
-                                                <i className='bx bx-group'></i>
-                                                <span>View</span>
-                                                813,454
-                                            </li>
-                                            <li>
-                                                <i className='bx bx-calendar'></i>
-                                                <span>Last Updated</span>
-                                                Jun 21, 2020
-                                            </li>
-                                        </ul>
-                                    </div> */}
+                
               </div>
 
               {/* <div className="article-footer">
