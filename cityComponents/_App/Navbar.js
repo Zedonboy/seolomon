@@ -36,7 +36,7 @@ const Navbar = ({cityName}) => {
                     <div className="container">
                         <nav className="navbar navbar-expand-md navbar-light">
                             <Link href="/">
-                                <a onClick={toggleNavbar} className="navbar-brand">
+                                <a onClick={toggleNavbar} className="py-2 text-4xl font-bold">
                                     {cityName || "City"}
                                     {/* <img src="/images/logo.png" alt="logo" /> */}
                                 </a>

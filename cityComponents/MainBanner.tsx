@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -5,14 +6,27 @@ const ModalVideo = dynamic(() => import("react-modal-video"), {
   ssr: false,
 });
 
-const MainBanner = (props) => {
+interface IHeader {
+  headerText : string
+  subHead : string
+  gradientStart: string
+  gradientStop: string
+  videoCover: any
+  video:any
+}
+interface IMainBanner {
+  header: IHeader
+}
+const MainBanner = (props : IMainBanner) => {
   const [isOpen, setIsOpen] = React.useState(true);
   const openModal = () => {
     setIsOpen(!isOpen);
   };
   return (
     <>
-      <div className="main-banner p-0">
+      <div style={{
+        backgroundImage: `linear-gradient(to left, ${props?.header.gradientStart}, ${props?.header?.gradientStop})`,
+      }} className="p-0">
         <div className="h-[24px] md:h-0"></div>
         <div className="main-banner-item item-two pt-0">
           <div className="d-table">
@@ -46,7 +60,7 @@ const MainBanner = (props) => {
                         }}
                         className="video-btn absolute top-0 left-0 mx-auto my-auto popup-youtube"
                       >
-                        <i class="fas fa-play"></i>
+                        <i className="fas fa-play"></i>
                       </div>
                     </div>
                   </div>

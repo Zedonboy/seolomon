@@ -9,6 +9,7 @@ interface QualityItems {
 interface ComparisonItem {
   company_name: string;
   children: QualityItems[];
+  info: string
 }
 interface IComparison {
   text1: string;
@@ -43,7 +44,7 @@ export default function (props: { data: IComparison, mapStuff:IMapSection }) {
         <p>{props?.data?.text3}</p>
       </div>
       <div className="w-full flex flex-wrap px-8">
-        <div className="w-full md:w-1/2 h-[70vh] md:hidden flex flex-col bg-gray-200 p-4">
+        <div className="w-full md:w-0 h-[70vh] md:hidden flex flex-col bg-[#080E32] p-4">
           <div className="w-full overflow-auto">
             <ul className="flex mb-0">
               {props?.data?.compares?.map((v, i) => (
@@ -86,12 +87,17 @@ export default function (props: { data: IComparison, mapStuff:IMapSection }) {
                     <p className="m-0 font-bold">{v.company_score}</p>
                   </div>
                 ))}
+                <div className="bg-indigo-50 border border-indigo-900 text-indigo-900 p-2">
+                  <p>
+                    {props?.data?.compares[comparison]?.info}
+                  </p>
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
 
-        <div className="w-full md:w-1/2 h-[70vh] hidden md:flex bg-gray-200 p-4 m-8">
+        <div className="w-full md:w-1/2 h-[70vh] hidden md:flex bg-[#080E32] rounded-3xl p-4">
           <div className="w-1/3 py-6">
             <ul className="flex flex-col">
               {props?.data?.compares?.map((v, i) => (
@@ -119,6 +125,7 @@ export default function (props: { data: IComparison, mapStuff:IMapSection }) {
                 animate="active"
                 exit="exit"
                 variants={slideVariant}
+                className="relative h-full"
               >
                 <div className="w-full my-2 flex justify-between items-center">
                   <p className="m-0 text-2xl">Seolo</p>
@@ -134,6 +141,10 @@ export default function (props: { data: IComparison, mapStuff:IMapSection }) {
                     <p className="m-0 font-bold">{v.company_score}</p>
                   </div>
                 ))}
+                <div className="bg-indigo-50 absolute rounded-lg bottom-0 border border-indigo-900 text-indigo-900 p-2">
+                  <p>{props?.data?.compares[comparison]?.info}
+                  </p>
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>

@@ -162,7 +162,7 @@ const Footer = () => {
                         <div className="row align-items-center">
                             <div className="col-lg-6 col-md-6">
                                 <p>
-                                    Copyright &copy; {currentYear} Renex. All Rights Reserved by <a href="https://envytheme.com/" target="_blank">EnvyTheme</a>
+                                    Copyright &copy; {currentYear} Seolo.ai
                                 </p>
                             </div>
 
