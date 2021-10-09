@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
     <>
       <Head>
        
-        <link rel="canonical" href="https://renex-react.envytheme.com/"></link>
+        <link rel="canonical" href="https://seolo.ai/"></link>
         <link rel="stylesheet" href="/fontawesome/css/regular.min.css" />
         <link rel="stylesheet" href="/fontawesome/css/brands.min.css" />
         <link rel="stylesheet" href="/fontawesome/css/solid.min.css" />

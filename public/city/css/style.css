@@ -180,7 +180,7 @@ img {
 /*================================================
 Default btn CSS
 =================================================*/
-.default-btn {
+/* .default-btn {
   display: inline-block;
   padding: 12px 35px;
   color: #ffffff;
@@ -228,7 +228,7 @@ Default btn CSS
 .default-btn:hover::after {
   opacity: 1;
   visibility: visible;
-}
+} */
 
 /*================================================
 Section Title CSS
@@ -4690,7 +4690,7 @@ Client Area CSS
 /*================================================
 Subscribe Area CSS
 =================================================*/
-.subscribe-area {
+/* .subscribe-area {
   position: relative;
   z-index: 1;
   background-image: url(/images/subscribe-bg.jpg);
@@ -4773,7 +4773,7 @@ Subscribe Area CSS
 .subscribe-content .newsletter-form #validator-newsletter {
   color: white;
   margin-top: 15px;
-}
+} */
 
 /*================================================
 Quote Area CSS

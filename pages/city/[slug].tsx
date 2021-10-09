@@ -1,6 +1,6 @@
 import Layout from "../../cityComponents/_App/Layout";
 import Navbar from "../../cityComponents/_App/Navbar";
-import Footer from "../../cityComponents/_App/Footer";
+import Footer from "../../components/Sections/Footer";
 import MainBanner from "../../cityComponents/MainBanner";
 import Features from "../../cityComponents/Features";
 import DigitalExp from "../../cityComponents/DigitalExperience";
@@ -9,11 +9,12 @@ import WriteUp from "../../cityComponents/WriteUp";
 import VideoSection from "../../cityComponents/VideoSection";
 import Industries from "../../cityComponents/Industries";
 import Comparator from "../../cityComponents/Comparator";
+import Subscribe from "../../components/Sections/SubscribeForm"
 import { API_URL } from "../../config/api";
 
 import Head from "next/head";
 
-export default function City({ page }) {
+export default function City({ page, site }) {
   return (
     <Layout>
       <Head>
@@ -45,21 +46,27 @@ export default function City({ page }) {
         mapStuff={page?.mapSection}
       />
 
-      {/* <Features /> */}
+      <Features data={page?.AltFeatureSection} />
       <DigitalExp data={page?.featuresSection}/>
       <WriteUp content={page?.writeUp} />
       {/* <VideoSection /> */}
       {/* <Industries /> */}
-      <Footer />
+      <Subscribe data={{
+        text1: "Let's Rank your Business",
+        text2: "Stay up to date with the latest SEOLO updates!",
+        text3: "Don't Delay. Sign Up Today!",
+        actionText: "Request Access"
+      }}/>
+      <Footer data={site} />
     </Layout>
   );
 }
 
 export async function getServerSideProps(ctx) {
   let slug = ctx.params.slug;
-  // let resp = await fetch(`${API_URL}/site`, {
-  //   method: "GET",
-  // });
+  let resp = await fetch(`${API_URL}/site`, {
+    method: "GET",
+  });
   if (!slug)
     return {
       notFound: true,
@@ -74,13 +81,15 @@ export async function getServerSideProps(ctx) {
   //   method: "GET",
   // });
 
-  if (respData.status === 200) {
+  if (respData.status === 200 && resp.status === 200) {
     let pageArr = await respData.json();
+    let site = await resp.json()
     if (pageArr && pageArr.length > 0) {
       let page = pageArr[0];
       return {
         props: {
           page,
+          site
         },
       };
     } else

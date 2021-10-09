@@ -13,6 +13,8 @@ interface IHeader {
   gradientStop: string
   videoCover: any
   video:any
+  actionBtnText:string
+  actionBtnLink:string
 }
 interface IMainBanner {
   header: IHeader
@@ -39,11 +41,11 @@ const MainBanner = (props : IMainBanner) => {
                       <p>
                         {props?.header?.subHead}
                       </p>
-                      {/* <div className="banner-btn">
-                        <Link href="/contact-1">
-                          <a className="default-btn">Where?</a>
+                      <div className="banner-btn">
+                        <Link href={props?.header?.actionBtnLink || "/"}>
+                          <a className="default-btn">{props?.header?.actionBtnText}</a>
                         </Link>
-                      </div> */}
+                      </div>
                     </div>
                   </div>
                   <div className="col-lg-6 overflow-hidden">
