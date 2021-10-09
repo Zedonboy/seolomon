@@ -14,7 +14,7 @@ interface FeatureSection {
 }
 const ServicesStyleOne = (props : {data:FeatureSection}) => {
     return (
-        <div className="services-area bg-fff5ee pt-100 pb-70">
+        <div className="services-area pt-100 pb-70">
             <div className="container">
                 <div className="section-title">
                     <span>{props?.data?.text1}</span>
