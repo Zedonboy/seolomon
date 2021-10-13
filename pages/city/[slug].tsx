@@ -55,7 +55,9 @@ export default function City({ page, site }) {
         text1: "Let's Rank your Business",
         text2: "Stay up to date with the latest SEOLO updates!",
         text3: "Don't Delay. Sign Up Today!",
-        actionText: "Request Access"
+        actionText: "Request Access",
+        gradientEnd:"white",
+        gradientStart:"white"
       }}/>
       <Footer data={site} />
     </Layout>
