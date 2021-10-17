@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 
 interface IMap {
   lat: number;
@@ -11,7 +11,7 @@ export interface IMapSection {
   seoloCoord: IMap
   CompanyLocations: IMap[];
 }
-export default function MapComponent(props: { data: IMapSection }) {
+function MapComponent(props: { data: IMapSection }) {
   useEffect(() => {
     mapboxgl.accessToken =
       "pk.eyJ1Ijoiam1hcnNpbGwiLCJhIjoiY2s3empyeXU1MDN3ZzNncGt2dDc2eTh1NyJ9.eh89Mi6ZtYweRbT2Jq1Sgw";
@@ -69,3 +69,5 @@ export default function MapComponent(props: { data: IMapSection }) {
     </section>
   );
 }
+
+export default memo(MapComponent)

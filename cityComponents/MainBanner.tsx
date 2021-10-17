@@ -15,6 +15,8 @@ interface IHeader {
   video:any
   actionBtnText:string
   actionBtnLink:string
+  cover:any
+  coverOpacity:number
 }
 interface IMainBanner {
   header: IHeader
@@ -27,9 +29,15 @@ const MainBanner = (props : IMainBanner) => {
   return (
     <>
       <div style={{
-        backgroundImage: `linear-gradient(to left, ${props?.header.gradientStart}, ${props?.header?.gradientStop})`,
-      }} className="p-0">
-        <div className="h-[24px] md:h-0"></div>
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundImage: `url(${props?.header?.cover?.url})`,
+      }} className="p-0 relative">
+        <div style={{
+          opacity: props?.header?.coverOpacity,
+          backgroundImage: `linear-gradient(to left, ${props?.header?.gradientStart || "white"}, ${props?.header?.gradientStop || "white"})`
+        }} className="absolute top-0 left-0 w-full h-full"></div>
+        <div className="h-[200px] md:h-0"></div>
         <div className="main-banner-item item-two pt-0">
           <div className="d-table">
             <div className="d-table-cell">
