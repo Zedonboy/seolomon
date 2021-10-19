@@ -65,7 +65,7 @@ export default function (props: { data: IComparison; mapStuff: IMapSection }) {
                       setComparison(i);
                     }}
                   >
-                    {v.company_name}
+                    {v?.company_name}
                   </button>
                 </li>
               ))}
@@ -90,12 +90,12 @@ export default function (props: { data: IComparison; mapStuff: IMapSection }) {
                 </div>
                 {props?.data?.compares[comparison]?.children?.map((v) => (
                   <div className="flex my-2 justify-between items-center">
-                    <p className="m-0">{v.quality}</p>
+                    <p className="m-0">{v?.quality}</p>
                     <p className="font-bold text-[#FE4C1C] m-0">
-                      {v.seolo_score}
+                      {v?.seolo_score}
                     </p>
 
-                    <p className="m-0 font-bold">{v.company_score}</p>
+                    <p className="m-0 font-bold">{v?.company_score}</p>
                   </div>
                 ))}
                <AnimatePresence>
@@ -113,14 +113,12 @@ export default function (props: { data: IComparison; mapStuff: IMapSection }) {
                       </p>
                       <p className="italic text-sm mt-4 font-light">
                         {
-                          props?.data?.compares[comparison]?.info[currentInfo]
-                            .message
+                          props?.data?.compares[comparison]?.info[currentInfo]?.message
                         }
                       </p>
                       <p className="text-right font-bold">
                         {
-                          props?.data?.compares[comparison]?.info[currentInfo]
-                            .author
+                          props?.data?.compares[comparison]?.info[currentInfo]?.author
                         }
                       </p>
                     </motion.div>
@@ -182,12 +180,12 @@ export default function (props: { data: IComparison; mapStuff: IMapSection }) {
                 </div>
                 {props?.data?.compares[comparison]?.children?.map((v) => (
                   <div className="flex my-2 justify-between items-center">
-                    <span className="m-0">{v.quality}</span>
+                    <span className="m-0">{v?.quality}</span>
                     <span className="font-bold text-[#FE4C1C] m-0">
-                      {v.seolo_score}
+                      {v?.seolo_score}
                     </span>
 
-                    <p className="m-0 text-gray-500">{v.company_score}</p>
+                    <p className="m-0 text-gray-500">{v?.company_score}</p>
                   </div>
                 ))}
                 <AnimatePresence>
@@ -205,14 +203,12 @@ export default function (props: { data: IComparison; mapStuff: IMapSection }) {
                       </p>
                       <p className="italic text-sm mt-4 font-light">
                         {
-                          props?.data?.compares[comparison]?.info[currentInfo]
-                            .message
+                          props?.data?.compares[comparison]?.info[currentInfo]?.message
                         }
                       </p>
                       <p className="text-right font-bold">
                         {
-                          props?.data?.compares[comparison]?.info[currentInfo]
-                            .author
+                          props?.data?.compares[comparison]?.info[currentInfo]?.author
                         }
                       </p>
                     </motion.div>
