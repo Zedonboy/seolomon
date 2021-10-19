@@ -127,6 +127,7 @@ const Features = (props: { data: IAltFeature }) => {
                   </Link>
                 </h3>
                 <p>{function(){
+                  if(!v?.desc) return
                   let substr = v?.desc.substring(0,160)
                   let textLngth = v?.desc?.length || -1
                   if(textLngth > 160){
