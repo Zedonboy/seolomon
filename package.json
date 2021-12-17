@@ -7,7 +7,11 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",
+    "@heroicons/react": "^1.0.5",
     "@mailchimp/mailchimp_transactional": "^1.0.40",
+    "@tailwindcss/aspect-ratio": "^0.3.0",
+    "@tailwindcss/forms": "^0.3.4",
+    "@tailwindcss/line-clamp": "^0.3.0",
     "@tailwindcss/typography": "^0.4.1",
     "@types/react": "^17.0.19",
     "axios": "^0.21.4",
@@ -28,6 +32,6 @@
   "devDependencies": {
     "autoprefixer": "^10.2.6",
     "postcss": "^8.3.5",
-    "tailwindcss": "^2.2.4"
+    "tailwindcss": "^2.2.19"
   }
 }
