@@ -3,11 +3,14 @@ import AF from "../../cityComponent/AlternatingFeature";
 import BlogSection from "../../cityComponent/BlogSection";
 import CardSection from "../../cityComponent/CardSection";
 import Comparison from "../../cityComponent/Comparison";
+import Faq from "../../cityComponent/Faq";
 import Features from "../../cityComponent/Feature";
 import Footer from "../../cityComponent/Footer";
 import Hero from "../../cityComponent/Hero";
 import MakeUsDiff from "../../cityComponent/MakeUsDiff";
 import Newsletter from "../../cityComponent/Newsletter";
+import Pricing from "../../cityComponent/Pricing";
+import Testimonial from "../../cityComponent/Testimonial";
 import WriteUp from "../../cityComponent/WriteUp";
 import { API_URL } from "../../config/api";
 
@@ -24,7 +27,7 @@ export default function CityPage({ page, cityPosts }) {
       <Hero data={page?.header} />
       <Features />
       <AF />
-      <MakeUsDiff/>
+      <MakeUsDiff data={page?.make_us_different}/>
       <CardSection data={page?.AltFeatureSection} />
       <Newsletter />
       <Comparison data={{
@@ -36,6 +39,9 @@ export default function CityPage({ page, cityPosts }) {
 
       <WriteUp data={page?.WriteSection}/>
       <BlogSection post={cityPosts} />
+      <Pricing/>
+      <Testimonial data={page?.reviews}/>
+      <Faq data={page?.faq}/>
       <Footer />
     </>
   );

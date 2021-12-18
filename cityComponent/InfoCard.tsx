@@ -31,11 +31,11 @@ export function InfoCard(props : {title: string, content : string, onClick : (e 
         <p className="line-clamp-5 max-h-40 h-40 mt-1 text-gray-700">
             {props.content.substr(0, 100)+"..."}
         </p>
-        <button
+        {/* <button
           className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           Read More
-        </button>
+        </button> */}
       </div>
     </div>
   );
