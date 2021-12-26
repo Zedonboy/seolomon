@@ -46,7 +46,7 @@ export default function Hero(props : {data : IHeader}) {
 
       <main style={{
           backgroundSize: "cover",
-          backgroundImage: `url(/images/blog/blog-img1.jpg)`
+          backgroundImage: `url(${props?.data?.cover?.url})`
         }}>
         <div className="pt-10 bg-gray-800 bg-opacity-80 h-auto md:h-screen sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
           <div className="mx-auto max-w-7xl flex flex-col items-center justify-center lg:px-8 h-full">

@@ -48,8 +48,7 @@ export default function Features() {
                       {feature.name}
                     </h3>
                     <p className="mt-5 text-base text-gray-500">
-                      Ac tincidunt sapien vehicula erat auctor pellentesque
-                      rhoncus. Et magna sit morbi lobortis.
+                     {feature.content}
                     </p>
                   </div>
                 </div>
