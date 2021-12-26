@@ -21,17 +21,17 @@ export default function CardSection(props: { data: IAltFeature }) {
   const ref = useRef();
   return (
     <section id="xv" ref={ref} className="w-full flex flex-col p-2 md:p-0 items-center">
-      <h2 className="text-base font-semibold tracking-wider text-indigo-600 uppercase">
+      <h2 className="text-base text-center font-semibold tracking-wider text-green-600 uppercase">
         {props?.data?.text1}
       </h2>
-      <p className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
+      <p className="mt-2 text-3xl text-center font-extrabold text-gray-900 tracking-tight sm:text-4xl">
         {function(){
           if(title == null){
             return props?.data?.text2
           } else return title
         }()}
       </p>
-      <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
+      <p className="mt-5 text-center max-w-prose mx-auto text-xl text-gray-500">
         {props?.data?.text3}
       </p>
       <section
@@ -48,7 +48,7 @@ export default function CardSection(props: { data: IAltFeature }) {
             setTitle(null)
           }}
           type="button"
-          className="block mx-auto items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="block mx-auto items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
         >
           Close
         </button>

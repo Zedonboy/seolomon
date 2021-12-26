@@ -26,17 +26,17 @@ const people = [
 
 export default function Comparison(props: { data: IComparison }) {
   return (
-    <section className="flex w-full flex-col items-center">
-      <h2 className="text-base font-semibold tracking-wider text-indigo-600 uppercase">
+    <section className="flex w-full flex-col items-center px-4">
+      <h2 className="text-base font-semibold text-center tracking-wider text-green-600 uppercase">
         {props?.data?.text1}
       </h2>
-      <p className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
+      <p className="mt-2 text-3xl font-extrabold text-center text-gray-900 tracking-tight sm:text-4xl">
         {props?.data?.text2}
       </p>
-      <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
+      <p className="mt-5 max-w-prose mx-auto text-center text-xl text-gray-500">
         {props?.data?.text3}
       </p>
-      <div className="flex overflow-auto w-full px-2 mt-2 md:justify-center">
+      <div className="flex overflow-auto w-full mt-2 md:justify-center">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
