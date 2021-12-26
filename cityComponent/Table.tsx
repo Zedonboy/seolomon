@@ -1,71 +1,42 @@
-import CompareCard from "./CompareCard";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
-
-interface QualityItems {
-  company_score: string;
-  quality: string;
-  seolo_score: string;
-}
-export interface ComparisonItem {
-  company_name: string;
-  children: QualityItems[];
-  company_logo: any;
-}
-interface IComparison {
-  text1: string;
-  text2: string;
-  text3: string;
-  compares: ComparisonItem[];
-}
-
+/* This example requires Tailwind CSS v2.0+ */
 const people = [
-  { name: 'Speed', title: '30%', role: '30%', email: '30%' },
-  { name: 'Cost', title: '$50', role: '$70', email: '$79' },
-  // More people...
-]
-
-export default function Comparison(props: { data: IComparison }) {
-  return (
-    <section className="flex w-full flex-col items-center">
-      <h2 className="text-base font-semibold tracking-wider text-indigo-600 uppercase">
-        {props?.data?.text1}
-      </h2>
-      <p className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-        {props?.data?.text2}
-      </p>
-      <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-        {props?.data?.text3}
-      </p>
-      <div className="flex overflow-auto w-full px-2 mt-2 md:justify-center">
+    { name: 'Jane Cooper', title: 'Regional Paradigm Technician', role: 'Admin', email: 'jane.cooper@example.com' },
+    { name: 'Cody Fisher', title: 'Product Directives Officer', role: 'Owner', email: 'cody.fisher@example.com' },
+    // More people...
+  ]
+  
+  export default function Example() {
+    return (
+      <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-              <table className="min-w-full table-auto divide-y divide-gray-200">
+              <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>
                     <th
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Quality
+                      Name
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Company X
+                      Title
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Company X
+                      Email
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Company X
+                      Role
                     </th>
                     <th scope="col" className="relative px-6 py-3">
                       <span className="sr-only">Edit</span>
@@ -79,7 +50,11 @@ export default function Comparison(props: { data: IComparison }) {
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.title}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.email}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.role}</td>
-                     
+                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
+                          Edit
+                        </a>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -87,7 +62,7 @@ export default function Comparison(props: { data: IComparison }) {
             </div>
           </div>
         </div>
-      </div>      
-    </section>
-  );
-}
+      </div>
+    )
+  }
+  

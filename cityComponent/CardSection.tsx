@@ -20,7 +20,7 @@ export default function CardSection(props: { data: IAltFeature }) {
   const [title, setTitle] = useState(null)
   const ref = useRef();
   return (
-    <section id="xv" ref={ref} className="w-full flex flex-col items-center">
+    <section id="xv" ref={ref} className="w-full flex flex-col p-2 md:p-0 items-center">
       <h2 className="text-base font-semibold tracking-wider text-indigo-600 uppercase">
         {props?.data?.text1}
       </h2>

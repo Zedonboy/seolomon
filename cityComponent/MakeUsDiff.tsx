@@ -119,14 +119,14 @@ export default function MakeUsDiff(props : {data : IMakeUsDiff}) {
                   </p>
                 </div>
               </div>
-              <cite className="relative flex items-center sm:items-start bg-indigo-600 rounded-b-lg not-italic py-5 px-6 sm:py-5 sm:pl-12 sm:pr-10 sm:mt-10">
-                <div className="relative rounded-full border-2 border-white sm:absolute sm:top-0 sm:transform sm:-translate-y-1/2">
+              <cite className="relative flex items-center sm:items-start bg-green-600 rounded-b-lg not-italic py-5 px-6 sm:py-5 sm:pl-12 sm:pr-10 sm:mt-10">
+                {/* <div className="relative rounded-full border-2 border-white sm:absolute sm:top-0 sm:transform sm:-translate-y-1/2">
                   <img
                     className="w-12 h-12 sm:w-20 sm:h-20 rounded-full bg-indigo-300"
                     src={props?.data?.main_review?.role}
                     alt=""
                   />
-                </div>
+                </div> */}
                 <span className="relative ml-4 text-indigo-300 font-semibold leading-6 sm:ml-24 sm:pl-1">
                   <p className="text-white font-semibold sm:inline">
                   {props?.data?.main_review?.name}
