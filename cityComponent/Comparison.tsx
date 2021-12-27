@@ -23,7 +23,7 @@ const people = [
   { col1: "Output quality", col2: "Seolo provides a much better, professional-quality output that requires minimal to no editing", col3: "9.5/10", col4: "8/10", col5: "7/10" },
   {col1: "Editor", col2: "Seolo offers a simple doc-style editor for distraction-free long-form writing. Perfect for blogs, articles, essays, and more", col3: "yes", col4: "no", col5: "no" },
   // More people...
-  {col1: "Monthly price", col2:"Rytr is one of the most affordable, value for money tools especially with the offered quality and features", col3: "$29", col4: "$600", col5: "$900"}
+  {col1: "Monthly price", col2:"Seolo is one of the most affordable, value for money tools especially with the offered quality and features", col3: "$29", col4: "$600", col5: "$900"}
 ];
 
 export default function Comparison(props: { data: IComparison }) {
