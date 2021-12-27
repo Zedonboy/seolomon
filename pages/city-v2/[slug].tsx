@@ -41,7 +41,8 @@ export default function CityPage({ page, cityPosts }) {
       />
 
       <WriteUp data={page?.WriteSection} />
-      <BlogSection post={cityPosts} />
+      {cityPosts.length === 0 ? null : <BlogSection post={cityPosts} />}
+      
       <Pricing />
       <Testimonial data={page?.reviews} />
       <Faq data={page?.faq} />
