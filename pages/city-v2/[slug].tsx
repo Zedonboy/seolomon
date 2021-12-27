@@ -23,6 +23,7 @@ export default function CityPage({ page, cityPosts }) {
       {page?.meta?.map(m => (
         <meta property={m?.property} content={m?.content}/>
       ))}
+      <meta name="theme-color" content="#10B981"/>
     </Head>
       <Hero data={page?.header} />
       <Features />
