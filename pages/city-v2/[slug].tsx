@@ -8,41 +8,47 @@ import Features from "../../cityComponent/Feature";
 import Footer from "../../cityComponent/Footer";
 import Hero from "../../cityComponent/Hero";
 import MakeUsDiff from "../../cityComponent/MakeUsDiff";
+import MapComponent from "../../cityComponent/MapComponent";
 import Newsletter from "../../cityComponent/Newsletter";
 import Pricing from "../../cityComponent/Pricing";
 import Testimonial from "../../cityComponent/Testimonial";
 import WriteUp from "../../cityComponent/WriteUp";
 import { API_URL } from "../../config/api";
 
-
 export default function CityPage({ page, cityPosts }) {
   return (
     <>
-    <Head>
-      <title>{page?.title}</title>
-      {page?.meta?.map(m => (
-        <meta property={m?.property} content={m?.content}/>
-      ))}
-      <meta name="theme-color" content="#10B981"/>
-    </Head>
+      <Head>
+        <title>{page?.title}</title>
+        {page?.meta?.map((m) => (
+          <meta property={m?.property} content={m?.content} />
+        ))}
+        <meta name="theme-color" content="#10B981" />
+      </Head>
       <Hero data={page?.header} />
       <Features />
       <AF />
-      <MakeUsDiff data={page?.make_us_different}/>
+      <MakeUsDiff data={page?.make_us_different} />
       <CardSection data={page?.AltFeatureSection} />
       <Newsletter />
-      <Comparison data={{
-        text1: page?.CompareSection?.text1,
-        text2: page?.CompareSection?.text2,
-        text3: page?.CompareSection?.text3,
-        compares: page?.compares
-      }} />
+      <Comparison
+        data={{
+          text1: page?.CompareSection?.text1,
+          text2: page?.CompareSection?.text2,
+          text3: page?.CompareSection?.text3,
+          compares: page?.compares,
+        }}
+      />
 
-      <WriteUp data={page?.WriteSection}/>
+      <WriteUp data={page?.WriteSection} />
       <BlogSection post={cityPosts} />
-      <Pricing/>
-      <Testimonial data={page?.reviews}/>
-      <Faq data={page?.faq}/>
+      <Pricing />
+      <Testimonial data={page?.reviews} />
+      <Faq data={page?.faq} />
+      <div className="h-[400px] w-full">
+        <MapComponent data={page?.mapSection} />
+      </div>
+
       <Footer />
     </>
   );
@@ -71,19 +77,19 @@ export async function getServerSideProps(ctx) {
     let pageArr = await respData.json();
     if (pageArr && pageArr.length > 0) {
       let page = pageArr[0];
-      let cityPosts = []
+      let cityPosts = [];
       let cityPostResp = await fetch(`${API_URL}/posts?city.id=${page.id}`, {
         method: "GET",
       });
 
-      if(cityPostResp.ok) {
-        cityPosts = await cityPostResp.json()
+      if (cityPostResp.ok) {
+        cityPosts = await cityPostResp.json();
       }
       // console.log(page);
       return {
         props: {
           page,
-          cityPosts
+          cityPosts,
         },
       };
     } else
