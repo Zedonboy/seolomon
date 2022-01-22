@@ -1,74 +1,65 @@
-import Layout from "../../cityComponents/_App/Layout";
-import Navbar from "../../cityComponents/_App/Navbar";
-import Footer from "../../components/Sections/Footer";
-import MainBanner from "../../cityComponents/MainBanner";
-import Features from "../../cityComponents/Features";
-import DigitalExp from "../../cityComponents/DigitalExperience";
-import Comparison from "../../cityComponents/Comparison";
-import WriteUp from "../../cityComponents/WriteUp";
-import VideoSection from "../../cityComponents/VideoSection";
-import Industries from "../../cityComponents/Industries";
-import Comparator from "../../cityComponents/Comparator";
-import Subscribe from "../../components/Sections/SubscribeForm"
+import Head from "next/head";
+import AF from "../../cityComponent/AlternatingFeature";
+import BlogSection from "../../cityComponent/BlogSection";
+import CardSection from "../../cityComponent/CardSection";
+import Comparison from "../../cityComponent/Comparison";
+import Faq from "../../cityComponent/Faq";
+import Features from "../../cityComponent/Feature";
+import Footer from "../../cityComponent/Footer";
+import Hero from "../../cityComponent/Hero";
+import MakeUsDiff from "../../cityComponent/MakeUsDiff";
+import MapComponent from "../../cityComponent/MapComponent";
+import Newsletter from "../../cityComponent/Newsletter";
+import Pricing from "../../cityComponent/Pricing";
+import Testimonial from "../../cityComponent/Testimonial";
+import WriteUp from "../../cityComponent/WriteUp";
 import { API_URL } from "../../config/api";
 
-import Head from "next/head";
-
-export default function City({ page, site }) {
+export default function CityPage({ page, cityPosts }) {
   return (
-    <Layout>
+    <>
       <Head>
-        <title>{page?.cityName}</title>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <meta name="description" content={`Seolo is in ${page?.cityName}`} />
-        <meta
-          name="og:title"
-          property="og:title"
-          content={`Seolo is in ${page?.cityName}`}
-        ></meta>
-        <meta
-          name="twitter:card"
-          content={`Seolo is in ${page?.cityName}`}
-        ></meta>
+        <title>{page?.title}</title>
+        {page?.meta?.map((m) => (
+          <meta property={m?.property} content={m?.content} />
+        ))}
+        <meta name="theme-color" content="#10B981" />
       </Head>
-      <Navbar cityName={page?.cityName} />
-      <MainBanner header={page?.header} />
-      <Comparator
+      <Hero data={page?.header} />
+      <Features />
+      <AF />
+      <MakeUsDiff data={page?.make_us_different} />
+      <CardSection data={page?.AltFeatureSection} />
+      <Newsletter />
+      <Comparison
         data={{
           text1: page?.CompareSection?.text1,
           text2: page?.CompareSection?.text2,
           text3: page?.CompareSection?.text3,
           compares: page?.compares,
         }}
-        mapStuff={page?.mapSection}
       />
 
-      <Features data={page?.AltFeatureSection} />
-      <DigitalExp data={page?.featuresSection}/>
-      <WriteUp content={page?.writeUp} />
-      {/* <VideoSection /> */}
-      {/* <Industries /> */}
-      <Subscribe data={{
-        text1: "Let's Rank your Business",
-        text2: "Stay up to date with the latest SEOLO updates!",
-        text3: "Don't Delay. Sign Up Today!",
-        actionText: "Request Access",
-        gradientEnd:"white",
-        gradientStart:"white"
-      }}/>
-      <Footer data={site} />
-    </Layout>
+      <WriteUp data={page?.WriteSection} />
+      {cityPosts.length === 0 ? null : <BlogSection post={cityPosts} />}
+      
+      <Pricing />
+      <Testimonial data={page?.reviews} />
+      <Faq data={page?.faq} />
+      <div className="h-[400px] w-full">
+        <MapComponent data={page?.mapSection} />
+      </div>
+
+      <Footer />
+    </>
   );
 }
 
 export async function getServerSideProps(ctx) {
   let slug = ctx.params.slug;
-  let resp = await fetch(`${API_URL}/site`, {
-    method: "GET",
-  });
+  // let resp = await fetch(`${API_URL}/site`, {
+  //   method: "GET",
+  // });
   if (!slug)
     return {
       notFound: true,
@@ -83,15 +74,23 @@ export async function getServerSideProps(ctx) {
   //   method: "GET",
   // });
 
-  if (respData.status === 200 && resp.status === 200) {
+  if (respData.status === 200) {
     let pageArr = await respData.json();
-    let site = await resp.json()
     if (pageArr && pageArr.length > 0) {
       let page = pageArr[0];
+      let cityPosts = [];
+      let cityPostResp = await fetch(`${API_URL}/posts?city.id=${page.id}`, {
+        method: "GET",
+      });
+
+      if (cityPostResp.ok) {
+        cityPosts = await cityPostResp.json();
+      }
+      // console.log(page);
       return {
         props: {
           page,
-          site
+          cityPosts,
         },
       };
     } else
@@ -99,8 +98,6 @@ export async function getServerSideProps(ctx) {
         notFound: true,
         props: {},
       };
-
-    //console.log(page)
   } else {
     return {
       notFound: true,
