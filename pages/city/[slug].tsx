@@ -28,23 +28,23 @@ export default function CityPage({ page, cityPosts }) {
       <Hero data={page?.header} />
       <Features />
       <AF />
-      <MakeUsDiff data={page?.make_us_different} />
+      {/* <MakeUsDiff data={page?.make_us_different} /> */}
       <CardSection data={page?.AltFeatureSection} />
       <Newsletter />
-      <Comparison
+      {/* <Comparison
         data={{
           text1: page?.CompareSection?.text1,
           text2: page?.CompareSection?.text2,
           text3: page?.CompareSection?.text3,
           compares: page?.compares,
         }}
-      />
+      /> */}
 
       <WriteUp data={page?.WriteSection} />
       {cityPosts.length === 0 ? null : <BlogSection post={cityPosts} />}
       
       <Pricing />
-      <Testimonial data={page?.reviews} />
+      {/* <Testimonial data={page?.reviews} /> */}
       <Faq data={page?.faq} />
       <div className="h-[400px] w-full">
         <MapComponent data={page?.mapSection} />
